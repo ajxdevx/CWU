@@ -16,3 +16,121 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+/* --- Hero entrance (opacity + transform only; final keyframes match static design) --- */
+:root {
+  --hero-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes hero-header-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-up-tight {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-coin-in {
+  from {
+    opacity: 0;
+    transform: rotate(9.14deg) translateY(56px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(9.14deg) translateY(44px) scale(1);
+  }
+}
+
+.hero-intro-header {
+  opacity: 0;
+  animation: hero-header-in 0.9s var(--hero-ease) forwards;
+  animation-delay: 0.09s;
+}
+
+.hero-intro-launch {
+  opacity: 0;
+  animation: hero-fade-up 0.85s var(--hero-ease) forwards;
+  animation-delay: 0.22s;
+}
+
+.hero-intro-headline-line {
+  opacity: 0;
+  display: block;
+  animation: hero-fade-up-tight 0.95s var(--hero-ease) forwards;
+}
+
+.hero-intro-headline-line--1 {
+  animation-delay: 0.34s;
+}
+
+.hero-intro-headline-line--2 {
+  animation-delay: 0.44s;
+}
+
+.hero-intro-subhead {
+  opacity: 0;
+  animation: hero-fade-up-tight 0.85s var(--hero-ease) forwards;
+  animation-delay: 0.54s;
+}
+
+.hero-intro-coin {
+  opacity: 0;
+  transform: rotate(9.14deg) translateY(56px) scale(0.97);
+  transform-origin: center center;
+  animation: hero-coin-in 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-intro-coin {
+      transition: transform 0.35s ease-out;
+    }
+
+    .hero-intro-coin:hover {
+      transform: rotate(9.14deg) translateY(42px) scale(1);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-intro-header,
+  .hero-intro-launch,
+  .hero-intro-headline-line,
+  .hero-intro-subhead {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-intro-coin {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: rotate(9.14deg) translateY(44px) !important;
+  }
+}

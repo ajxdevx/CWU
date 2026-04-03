@@ -1,6 +1,6 @@
 export default function HeroLaunchLine() {
   return (
-    <div className="relative -left-px mt-16 flex h-[24px] w-[385px] shrink-0 items-center justify-start gap-2 rounded-none md:mt-24 lg:mt-28">
+    <div className="hero-intro-launch relative -left-px mt-16 flex h-[24px] w-[385px] shrink-0 items-center justify-start gap-2 rounded-none md:mt-24 lg:mt-28">
       <span
         className="h-2 w-2 shrink-0 rounded-full bg-[#3CDAC4]"
         aria-hidden={true}
