@@ -1,14 +1,12 @@
+/** Coin: ~12% larger than base Figma size; slight translate down; rotation composed in transform. */
 export default function CoinVisual() {
   return (
-    <div className="flex w-full min-w-0 shrink-0 justify-end overflow-visible md:w-auto">
-      <img
-        src="/Rectangle(3).svg"
-        alt="Coin"
-        width={634}
-        height={561}
-        decoding="async"
-        className="h-auto w-full max-w-[634px] object-contain rotate-[9.14deg] md:w-[634px] md:h-[561px]"
-      />
-    </div>
+    <img
+      src="/Rectangle(3).svg"
+      alt=""
+      decoding="async"
+      className="h-[628px] w-[710px] shrink-0 rounded-none object-contain"
+      style={{ transform: 'rotate(9.14deg) translateY(44px)' }}
+    />
   )
 }
