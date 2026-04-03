@@ -1,6 +1,3 @@
-/**
- * Single `<p>`, two lines (`\\n`). Figma: fixed 848.7×240, X −7 / Y 7, Georgia 120px / 100% LH / 0 tracking / #FFF.
- */
 export default function HeroHeadline() {
   return (
     <p

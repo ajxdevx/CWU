@@ -8,7 +8,7 @@ export default function Logo({ line1, line2 }: LogoProps) {
     <div className="flex h-[109px] w-full items-center gap-4">
       <div className="shrink-0">
         <img
-          src="/Group.svg"
+          src="/headerlogosvg.svg"
           alt=""
           width={58}
           height={61}

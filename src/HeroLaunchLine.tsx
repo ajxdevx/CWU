@@ -1,4 +1,3 @@
-/** Hero launch row: 385×24 fixed; DM Sans bold 20px, leading 120%, tracking 1.8px, #3CDAC4, left / top. */
 export default function HeroLaunchLine() {
   return (
     <div className="relative -left-px mt-16 flex h-[24px] w-[385px] shrink-0 items-center justify-start gap-2 rounded-none md:mt-24 lg:mt-28">
