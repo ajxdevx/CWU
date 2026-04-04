@@ -11,7 +11,7 @@ export default function CoinVisual() {
       fill="none"
       role="img"
       aria-hidden={true}
-      className="hero-intro-coin h-[628px] w-[710px] shrink-0 rounded-none"
+      className="hero-intro-coin mx-auto block h-auto w-full max-w-[min(100%,min(710px,92vw))] shrink-0 rounded-none max-h-[min(34dvh,300px)] max-[1659px]:max-w-[85vw] min-[1660px]:mx-0 min-[1660px]:max-h-[min(628px,calc(100dvh-240px))] min-[1660px]:w-[min(710px,45vw)] min-[1660px]:max-w-[min(710px,48vw)]"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
