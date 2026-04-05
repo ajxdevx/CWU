@@ -19,10 +19,7 @@ export default function Logo({ line1, line2 }: LogoProps) {
           className="block h-10 w-9 sm:h-[52px] sm:w-[50px] md:h-[61px] md:w-[58px] min-[1800px]:h-[61px] min-[1800px]:w-[58px]"
         />
       </div>
-      <div
-        className="flex min-h-0 min-w-0 flex-col justify-center gap-0.5 rounded-none py-0 text-left sm:gap-1 min-[1800px]:max-w-[688px] min-[1800px]:shrink-0 min-[1800px]:gap-0"
-        style={{ fontFamily: 'Georgia, serif' }}
-      >
+      <div className="font-cwu-serif flex min-h-0 min-w-0 flex-col justify-center gap-0.5 rounded-none py-0 text-left sm:gap-1 min-[1800px]:max-w-[688px] min-[1800px]:shrink-0 min-[1800px]:gap-0">
         <span className={logoLineClass}>{line1}</span>
         <span className={logoLineClass}>{line2}</span>
       </div>

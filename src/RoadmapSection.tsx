@@ -70,7 +70,7 @@ export default function RoadmapSection() {
           </p>
           <h2
             id="roadmap-section-title"
-            className="mt-3 w-full max-w-[664px] text-left font-[Georgia,serif] text-[clamp(1.875rem,4.25vw+0.5rem,4rem)] font-normal leading-[1.2] tracking-normal sm:mt-4 lg:mt-5 lg:text-[64px]"
+            className="mt-3 w-full max-w-[664px] text-left font-cwu-serif text-[clamp(1.875rem,4.25vw+0.5rem,4rem)] font-normal leading-[1.2] tracking-normal sm:mt-4 lg:mt-5 lg:text-[64px]"
           >
             <span
               className="block text-balance wrap-break-word min-[1280px]:whitespace-nowrap"
@@ -93,7 +93,7 @@ export default function RoadmapSection() {
             return (
               <div
                 key={title}
-                className={`${bg} box-border flex min-h-[280px] w-full min-w-0 max-w-[610px] shrink-0 flex-col overflow-x-hidden overflow-y-auto rounded-2xl min-[1280px]:h-[322px] min-[1280px]:min-h-[322px]`}
+                className={`${bg} box-border flex min-h-[280px] w-full min-w-0 max-w-[610px] shrink-0 flex-col overflow-x-hidden overflow-y-visible rounded-2xl min-[1280px]:min-h-[322px]`}
               >
                 <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-3 px-6 py-4 sm:px-7 sm:py-5">
                   <div className="flex shrink-0 items-start justify-between gap-2 pt-1 sm:pt-2">
@@ -109,7 +109,7 @@ export default function RoadmapSection() {
                     />
                   </div>
                   <div className="flex min-h-0 min-w-0 flex-1 flex-col justify-center gap-4 text-left sm:gap-5">
-                    <h3 className="m-0 w-full min-w-0 text-balance font-[Georgia,serif] text-[clamp(1.5rem,4.25vw,2rem)] font-normal leading-[1.2] tracking-normal text-white md:text-[32px]">
+                    <h3 className="m-0 w-full min-w-0 text-balance font-cwu-serif text-[clamp(1.5rem,4.25vw,2rem)] font-normal leading-[1.2] tracking-normal text-white md:text-[32px]">
                       {title}
                     </h3>
                     <p className="m-0 min-h-0 w-full min-w-0 font-['DM_Sans',sans-serif] text-[clamp(1.0625rem,3.4vw,1.3125rem)] font-normal leading-[1.36] tracking-normal text-white/70 md:text-[20px] md:leading-[23.9px]">

@@ -19,7 +19,7 @@ export default function JoinCommunitySection() {
       <div className="mx-auto box-border flex w-full min-w-0 max-w-[613px] flex-col items-center px-6 py-12 text-center @container sm:px-8 sm:py-14">
         <h2
           id="join-community-heading"
-          className="m-0 w-full max-w-full text-center font-[Georgia,serif] text-[min(7.5rem,calc(100cqi/5.1))] font-normal leading-[0.9] tracking-normal text-[#111111]"
+          className="m-0 w-full max-w-full text-center font-cwu-serif text-[min(7.5rem,calc(100cqi/5.1))] font-normal leading-[0.9] tracking-normal text-[#111111]"
         >
           <span className="block max-w-full text-center">Join the</span>
           <span className="block max-w-full text-center">community</span>

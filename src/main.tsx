@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client'
 import '@fontsource/dm-sans/400.css'
 import '@fontsource/dm-sans/600.css'
 import '@fontsource/dm-sans/700.css'
+import '@fontsource/noto-serif/latin-400.css'
+import '@fontsource/noto-serif/latin-ext-400.css'
 import './index.css'
 import App from './App.tsx'
 

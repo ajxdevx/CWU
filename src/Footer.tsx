@@ -71,7 +71,7 @@ export default function Footer() {
             Georgia watermark: one line, left-aligned with main footer column; fluid type for narrow viewports.
           */}
           <p
-            className="m-0 w-max max-w-full text-left font-[Georgia,serif] text-[clamp(0.6875rem,min(6.75vw+0.125rem,calc(100cqi/11)),6.875rem)] font-normal leading-none tracking-[-0.04em] whitespace-nowrap text-white/30 select-none"
+            className="m-0 w-max max-w-full text-left font-cwu-serif text-[clamp(0.6875rem,min(6.75vw+0.125rem,calc(100cqi/11)),6.875rem)] font-normal leading-none tracking-[-0.04em] whitespace-nowrap text-white/30 select-none"
             aria-hidden
           >
             CommonwealthToken

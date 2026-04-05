@@ -15,7 +15,7 @@ const HEADLINE_LIGHT = '#227BB3'
 const WATERMARK_PHRASE = 'Where communities become economies'
 
 const watermarkTextClass =
-  "inline-block shrink-0 whitespace-nowrap pr-14 font-[Georgia,serif] text-[clamp(2.25rem,8vw,120px)] font-normal leading-[1.2] tracking-[-1px] text-[#D2D8DB] sm:pr-20 lg:pr-28"
+  "inline-block shrink-0 whitespace-nowrap pr-14 font-cwu-serif text-[clamp(2.25rem,8vw,120px)] font-normal leading-[1.2] tracking-[-1px] text-[#D2D8DB] sm:pr-20 lg:pr-28"
 
 /** Body copy: scales with column width (cqi) so manual line breaks track the same structure across widths */
 const aboutBodyClass =
@@ -87,7 +87,7 @@ export default function CommonwealthSection() {
               </p>
               <h2
                 id="cwu-about-heading"
-                className="m-0 w-full max-w-none text-left font-[Georgia,serif] text-[clamp(1.75rem,4.5vw+0.5rem,4rem)] font-normal leading-[1.1] tracking-[0] min-[900px]:text-[3.25rem] lg:text-[64px]"
+                className="m-0 w-full max-w-none text-left font-cwu-serif text-[clamp(1.75rem,4.5vw+0.5rem,4rem)] font-normal leading-[1.1] tracking-[0] min-[900px]:text-[3.25rem] lg:text-[64px]"
               >
                 <span className="block text-balance" style={{ color: HEADLINE_DARK }}>
                   An established global network spanning{' '}
@@ -146,7 +146,7 @@ export default function CommonwealthSection() {
               key={label}
               className="flex min-w-0 flex-col items-center justify-center gap-1 px-2 py-1 max-lg:py-8 sm:gap-1.5 lg:flex-1 lg:px-3"
             >
-              <p className="m-0 w-full text-center font-[Georgia,serif] text-[clamp(1.6875rem,4vw,56px)] font-normal leading-none tracking-normal text-[#0A1628] min-[900px]:text-[56px] min-[900px]:leading-[56px]">
+              <p className="m-0 w-full text-center font-cwu-serif text-[clamp(1.6875rem,4vw,56px)] font-normal leading-none tracking-normal text-[#0A1628] min-[900px]:text-[56px] min-[900px]:leading-[56px]">
                 {value}
               </p>
               <p className="m-0 w-full min-w-0 max-w-[225px] text-center font-['DM_Sans',sans-serif] text-[clamp(13px,1.65vw,20px)] font-normal leading-[1.2] tracking-[0.3px] text-[#999999] break-words [overflow-wrap:anywhere] sm:max-w-none">

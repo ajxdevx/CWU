@@ -54,7 +54,7 @@ export default function HowToBuySection() {
             </p>
             <h2
               id="how-to-buy-heading"
-              className="mt-3 font-[Georgia,serif] text-[clamp(2rem,4.5vw,3.5rem)] font-normal leading-[1.1] tracking-[0] text-[#111111] sm:mt-4"
+              className="mt-3 font-cwu-serif text-[clamp(2rem,4.5vw,3.5rem)] font-normal leading-[1.1] tracking-[0] text-[#111111] sm:mt-4"
             >
               How to buy $CWU
             </h2>
@@ -70,7 +70,7 @@ export default function HowToBuySection() {
                   <span className="inline-flex w-9 shrink-0 justify-end font-['DM_Sans',sans-serif] text-lg font-semibold tabular-nums leading-none text-[#3CDAC4] sm:w-12 sm:text-xl">
                     {n}
                   </span>
-                  <h3 className="m-0 min-w-0 flex-1 text-left font-[Georgia,serif] text-[clamp(1.375rem,2.5vw+0.75rem,2.5rem)] font-normal leading-[1.2] tracking-normal text-[#111111]">
+                  <h3 className="m-0 min-w-0 flex-1 text-left font-cwu-serif text-[clamp(1.375rem,2.5vw+0.75rem,2.5rem)] font-normal leading-[1.2] tracking-normal text-[#111111]">
                     {title}
                   </h3>
                 </div>

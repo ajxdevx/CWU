@@ -56,7 +56,7 @@ export default function NetworkSection() {
             <div className="flex min-w-0 w-full max-w-2xl flex-1 flex-col items-center gap-5 min-[900px]:max-w-none min-[900px]:items-stretch min-[900px]:pl-5 lg:gap-6 lg:pl-6">
               <h2
                 id="network-section-title"
-                className="m-0 w-full text-center font-[Georgia,serif] text-[clamp(1.75rem,4.5vw+0.5rem,4rem)] font-normal leading-[1.1] tracking-[0] min-[900px]:text-left min-[900px]:text-[3.25rem] lg:text-[64px]"
+                className="m-0 w-full text-center font-cwu-serif text-[clamp(1.75rem,4.5vw+0.5rem,4rem)] font-normal leading-[1.1] tracking-[0] min-[900px]:text-left min-[900px]:text-[3.25rem] lg:text-[64px]"
               >
                 <span className="block whitespace-nowrap sm:max-[1274px]:whitespace-normal sm:max-[1274px]:text-balance min-[1275px]:whitespace-nowrap">
                   <span style={{ color: NETWORK_HEADLINE_DARK }}>A digital layer for </span>
@@ -83,7 +83,7 @@ export default function NetworkSection() {
         {COLUMNS.map(({ n, title, body, bodyLine2, bodyLine3, bg, iconSrc }) => (
           <div
             key={n}
-            className={`${bg} box-border flex min-h-[260px] min-w-0 flex-col overflow-x-hidden overflow-y-auto px-5 py-8 sm:px-7 sm:py-10 min-[1275px]:h-[325px] min-[1275px]:min-h-[325px] lg:px-10 lg:py-14`}
+            className={`${bg} box-border flex min-h-[260px] min-w-0 flex-col overflow-x-hidden overflow-y-visible px-5 py-8 sm:px-7 sm:py-10 min-[1275px]:min-h-[325px] lg:px-10 lg:py-14`}
           >
             <div className="flex shrink-0 items-start justify-between gap-4">
               <img
@@ -101,7 +101,7 @@ export default function NetworkSection() {
               </span>
             </div>
             <div className="mt-auto flex min-h-0 w-full min-w-0 flex-col">
-              <h3 className="m-0 mb-3 min-w-0 font-[Georgia,serif] text-[clamp(1.375rem,0.28rem+3.9vw,2rem)] font-normal leading-[1.2] tracking-[0] text-white md:mb-4 md:text-[32px]">
+              <h3 className="m-0 mb-3 min-w-0 font-cwu-serif text-[clamp(1.375rem,0.28rem+3.9vw,2rem)] font-normal leading-[1.2] tracking-[0] text-white md:mb-4 md:text-[32px]">
                 {title}
               </h3>
               <p className="m-0 w-full min-w-0 break-words text-white/80 [overflow-wrap:anywhere] font-['DM_Sans',sans-serif] text-[clamp(0.96875rem,0.32rem+3.05vw,1.22rem)] font-normal leading-[1.35] tracking-[0] md:text-[20px] md:leading-[23.9px]">

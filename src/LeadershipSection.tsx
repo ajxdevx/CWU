@@ -177,7 +177,7 @@ export default function LeadershipSection() {
             </p>
             <h2
               id="leadership-heading"
-              className="mt-3 max-w-none text-balance font-[Georgia,serif] font-normal leading-[1.08] tracking-normal text-[#111111] max-[1659px]:whitespace-normal max-[1659px]:text-[clamp(1.6875rem,6.6vw,3.35rem)] sm:mt-4 min-[1660px]:whitespace-nowrap min-[1660px]:text-[64px] min-[1660px]:leading-[55.2px]"
+              className="mt-3 max-w-none text-balance font-cwu-serif font-normal leading-[1.08] tracking-normal text-[#111111] max-[1659px]:whitespace-normal max-[1659px]:text-[clamp(1.6875rem,6.6vw,3.35rem)] sm:mt-4 min-[1660px]:whitespace-nowrap min-[1660px]:text-[64px] min-[1660px]:leading-[55.2px]"
             >
               <span className="block min-[1660px]:inline">
                 Backed by global{' '}
@@ -221,7 +221,7 @@ export default function LeadershipSection() {
             <article
               key={`leader-${loopIndex}-${id}`}
               data-leader-card
-              className="@container flex w-[min(285px,calc(100%-1.25rem))] shrink-0 snap-start snap-always flex-col gap-4 overflow-hidden rounded-[16px] bg-white pb-6 shadow-[0_1px_3px_rgba(15,23,42,0.08)] max-[1659px]:h-auto max-[1659px]:min-h-0 sm:max-[1659px]:w-[min(285px,calc(100%-1.5rem))] sm:rounded-[20px] min-[1660px]:h-[365px] min-[1660px]:max-h-[365px] min-[1660px]:w-[285px] min-[1660px]:gap-3 min-[1660px]:rounded-[20px] min-[1660px]:pb-5"
+              className="@container flex w-[min(285px,calc(100%-1.25rem))] shrink-0 snap-start snap-always flex-col gap-4 overflow-hidden rounded-[16px] bg-white pb-6 shadow-[0_1px_3px_rgba(15,23,42,0.08)] max-[1659px]:h-auto max-[1659px]:min-h-0 sm:max-[1659px]:w-[min(285px,calc(100%-1.5rem))] sm:rounded-[20px] min-[1660px]:min-h-[365px] min-[1660px]:w-[285px] min-[1660px]:gap-3 min-[1660px]:rounded-[20px] min-[1660px]:pb-5"
             >
               <div className="w-full shrink-0 overflow-hidden bg-[#E8E6E1] max-[1659px]:aspect-[285/255] max-[1659px]:h-auto max-[1659px]:min-h-[200px] min-[1660px]:aspect-auto min-[1660px]:h-[255px] min-[1660px]:min-h-[255px] min-[1660px]:max-h-[255px]">
                 <img
@@ -234,8 +234,8 @@ export default function LeadershipSection() {
                   decoding="async"
                 />
               </div>
-              <div className="flex w-full min-w-0 flex-col items-start px-4 text-left sm:px-5 max-[1659px]:shrink-0 min-[1660px]:min-h-0 min-[1660px]:flex-1 min-[1660px]:px-4">
-                <h3 className="m-0 min-w-0 max-w-full text-balance font-['DM_Sans',sans-serif] font-semibold leading-[1.18] tracking-normal text-[#111111] [font-size:clamp(13.5px,calc(0.62rem+2.55cqi),16px)] min-[1660px]:line-clamp-4">
+              <div className="flex w-full min-w-0 flex-col items-start px-4 text-left sm:px-5 max-[1659px]:shrink-0 min-[1660px]:px-4">
+                <h3 className="m-0 min-w-0 max-w-full text-balance font-['DM_Sans',sans-serif] font-semibold leading-[1.18] tracking-normal text-[#111111] [font-size:clamp(13.5px,calc(0.62rem+2.55cqi),16px)]">
                   {name}
                 </h3>
                 <p className="mt-1.5 min-w-0 max-w-full text-pretty font-['DM_Sans',sans-serif] font-normal leading-[1.28] tracking-normal text-[#999999] [font-size:clamp(11px,calc(0.52rem+1.75cqi),14px)] max-[1659px]:mt-1.5 min-[1660px]:mt-1 min-[1660px]:leading-[1.22]">

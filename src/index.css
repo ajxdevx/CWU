@@ -16,6 +16,11 @@
   );
 }
 
+/* Georgia is not bundled on many Android devices; Noto Serif matches intent and loads with the app. */
+.font-cwu-serif {
+  font-family: "Noto Serif", Georgia, "Times New Roman", Times, serif;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
@@ -305,6 +310,23 @@ body::-webkit-scrollbar {
   animation-delay: 0.54s;
 }
 
+/* Hero CTAs + contract (same motion language as .hero-intro-subhead, staggered) */
+.hero-intro-cta {
+  opacity: 0;
+  animation: hero-fade-up-tight 0.85s var(--hero-ease) forwards;
+  animation-delay: 0.62s;
+}
+
+.hero-intro-cta--lag {
+  animation-delay: 0.72s;
+}
+
+.hero-intro-contract {
+  opacity: 0;
+  animation: hero-fade-up-tight 0.85s var(--hero-ease) forwards;
+  animation-delay: 0.82s;
+}
+
 .hero-intro-coin {
   opacity: 0;
   transform: rotate(9.14deg) translateY(56px) scale(0.97);
@@ -397,7 +419,10 @@ body::-webkit-scrollbar {
   .hero-intro-header,
   .hero-intro-launch,
   .hero-intro-headline-line,
-  .hero-intro-subhead {
+  .hero-intro-subhead,
+  .hero-intro-cta,
+  .hero-intro-cta--lag,
+  .hero-intro-contract {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
