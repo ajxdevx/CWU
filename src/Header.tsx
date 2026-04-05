@@ -65,9 +65,9 @@ export default function Header() {
   }, [panelMounted])
 
   return (
-    <header className="hero-intro-header relative z-30 w-full min-w-0 shrink-0 max-[1799px]:bg-transparent px-4 pb-2.5 pt-[max(0.625rem,env(safe-area-inset-top,0px))] sm:px-5 sm:pb-3 sm:pt-[max(0.75rem,env(safe-area-inset-top,0px))] min-[1800px]:bg-transparent min-[1800px]:px-0 min-[1800px]:py-0">
-      <div className="relative mx-auto flex min-h-0 w-full max-w-[min(1685px,calc(100vw-2rem))] shrink-0 items-center justify-between gap-3 rounded-[8px] bg-[#041825] px-4 py-3 sm:gap-4 sm:rounded-[10px] sm:px-5 sm:py-3.5 md:max-w-[min(1685px,calc(100vw-2.5rem))] lg:max-w-[min(1685px,calc(100vw-3rem))] min-[1800px]:mx-0 min-[1800px]:ml-[110px] min-[1800px]:h-[109px] min-[1800px]:w-[1685px] min-[1800px]:max-w-none min-[1800px]:gap-8 min-[1800px]:px-8 min-[1800px]:py-0">
-        <div className="flex min-w-0 flex-1 items-center gap-20 sm:gap-28 min-[1275px]:gap-[clamp(7rem,12vw,14rem)] min-[1800px]:gap-52">
+    <header className="hero-intro-header relative z-30 w-full min-w-0 shrink-0 bg-transparent px-0 pb-2.5 pt-[max(0.625rem,env(safe-area-inset-top,0px))] sm:pb-3 sm:pt-[max(0.75rem,env(safe-area-inset-top,0px))]">
+      <div className="relative mx-auto flex min-h-0 w-[90vw] max-w-[90vw] min-w-0 shrink-0 items-center justify-between gap-3 rounded-[8px] bg-[#041825] px-4 py-3 sm:gap-4 sm:rounded-[10px] sm:px-5 sm:py-3.5">
+        <div className="flex min-w-0 flex-1 items-center gap-20 sm:gap-28 min-[1275px]:gap-[clamp(5rem,10vw,14rem)]">
           <div className="min-w-0 shrink-0">
             <a
               href="/"
@@ -88,7 +88,7 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="hidden shrink-0 items-center gap-6 sm:gap-8 min-[1275px]:flex min-[1800px]:gap-10">
+        <div className="hidden shrink-0 items-center gap-6 sm:gap-8 min-[1275px]:flex min-[1275px]:gap-8 lg:gap-10">
           <HeaderSocialLinks />
           <HeaderActionButton />
         </div>
