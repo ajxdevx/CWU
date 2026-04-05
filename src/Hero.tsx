@@ -19,9 +19,9 @@ export default function Hero() {
             <HeroHeadline />
             <HeroSubhead />
           </div>
-          <div className="mt-5 flex w-full min-w-0 shrink-0 flex-nowrap items-center justify-center gap-2 sm:mt-7 sm:gap-3 md:mt-8 md:gap-4 min-[1260px]:mt-16 min-[1260px]:justify-start">
-            <HeaderActionButton />
-            <LearnMoreButton />
+          <div className="mt-0 flex w-[min(80vw,calc(100vw-2rem))] max-w-full shrink-0 flex-nowrap items-stretch justify-center gap-3 self-center min-w-0 sm:mt-1 sm:gap-3 md:mt-2 md:gap-4 min-[1260px]:mt-16 min-[1260px]:w-full min-[1260px]:max-w-none min-[1260px]:items-center min-[1260px]:justify-start min-[1260px]:self-auto">
+            <HeaderActionButton compactPair />
+            <LearnMoreButton compactPair />
           </div>
         </div>
 
