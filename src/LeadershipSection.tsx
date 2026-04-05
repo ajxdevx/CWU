@@ -235,10 +235,10 @@ export default function LeadershipSection() {
                 />
               </div>
               <div className="flex w-full min-w-0 flex-col items-start px-4 text-left sm:px-5 max-[1659px]:shrink-0 min-[1660px]:min-h-0 min-[1660px]:flex-1 min-[1660px]:px-4">
-                <h3 className="m-0 min-w-0 max-w-full text-balance font-['DM_Sans',sans-serif] font-semibold leading-[1.2] tracking-normal text-[#111111] [font-size:clamp(15px,calc(0.72rem+3.1cqi),18px)] min-[1660px]:line-clamp-4">
+                <h3 className="m-0 min-w-0 max-w-full text-balance font-['DM_Sans',sans-serif] font-semibold leading-[1.18] tracking-normal text-[#111111] [font-size:clamp(13.5px,calc(0.62rem+2.55cqi),16px)] min-[1660px]:line-clamp-4">
                   {name}
                 </h3>
-                <p className="mt-2 min-w-0 max-w-full text-pretty font-['DM_Sans',sans-serif] font-normal leading-[1.3] tracking-normal text-[#999999] [font-size:clamp(12.5px,calc(0.62rem+2.2cqi),16px)] max-[1659px]:mt-1.5 min-[1660px]:mt-1 min-[1660px]:leading-[1.25]">
+                <p className="mt-1.5 min-w-0 max-w-full text-pretty font-['DM_Sans',sans-serif] font-normal leading-[1.28] tracking-normal text-[#999999] [font-size:clamp(11px,calc(0.52rem+1.75cqi),14px)] max-[1659px]:mt-1.5 min-[1660px]:mt-1 min-[1660px]:leading-[1.22]">
                   {role}
                 </p>
               </div>

@@ -66,12 +66,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex min-h-0 min-w-0 flex-1 flex-col items-stretch justify-center overflow-x-auto px-2 py-10 [-ms-overflow-style:none] [scrollbar-width:none] @container sm:px-4 sm:py-12 [&::-webkit-scrollbar]:hidden">
+        <div className="@container flex min-h-0 min-w-0 flex-1 flex-col items-center justify-center overflow-x-auto px-2 py-10 [-ms-overflow-style:none] [scrollbar-width:none] sm:px-4 sm:py-12 [&::-webkit-scrollbar]:hidden">
           {/*
-            Georgia watermark: one line all breakpoints; clamp keeps it fitting narrow containers.
+            Georgia watermark: one line; low clamp min + vw/cqi so it scales down on phones instead of clipping.
           */}
           <p
-            className="m-0 w-max max-w-none text-left font-[Georgia,serif] text-[clamp(2rem,calc(100cqi/9.6),6.875rem)] font-normal leading-none tracking-[-1px] whitespace-nowrap text-white/30 select-none"
+            className="m-0 w-max font-[Georgia,serif] text-[clamp(0.6875rem,min(6.75vw+0.125rem,calc(100cqi/11)),6.875rem)] font-normal leading-none tracking-[-0.04em] whitespace-nowrap text-center text-white/30 select-none"
             aria-hidden
           >
             CommonwealthToken

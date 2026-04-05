@@ -9,20 +9,20 @@ const LINKS = [
 export default function JoinCommunitySection() {
   return (
     <section
-      className="box-border flex w-full min-w-0 shrink-0 flex-col items-center justify-center bg-[#F7F5F0] py-4 min-[480px]:min-h-[580px] min-[480px]:py-0"
+      className="box-border flex w-full min-w-0 shrink-0 flex-col items-center justify-center overflow-x-clip bg-[#F7F5F0] py-4 min-[480px]:min-h-[580px] min-[480px]:py-0"
       aria-labelledby="join-community-heading"
     >
       {/*
         Figma headline: Georgia regular 120px, leading 90%, #111111, block ~613px wide, left-aligned.
         min(7.5rem, 100cqi/5.1) caps at 120px and scales down in narrow containers (overflow-x: clip).
       */}
-      <div className="mx-auto flex w-full max-w-[613px] flex-col items-stretch px-6 py-12 text-center @container sm:px-8 sm:py-14">
+      <div className="mx-auto box-border flex w-full min-w-0 max-w-[613px] flex-col items-center px-6 py-12 text-center @container sm:px-8 sm:py-14">
         <h2
           id="join-community-heading"
-          className="m-0 w-full text-center font-[Georgia,serif] text-[min(7.5rem,calc(100cqi/5.1))] font-normal leading-[0.9] tracking-normal text-[#111111]"
+          className="m-0 w-full max-w-full text-center font-[Georgia,serif] text-[min(7.5rem,calc(100cqi/5.1))] font-normal leading-[0.9] tracking-normal text-[#111111]"
         >
-          <span className="block w-full text-center">Join the</span>
-          <span className="block w-full text-center">community</span>
+          <span className="block max-w-full text-center">Join the</span>
+          <span className="block max-w-full text-center">community</span>
         </h2>
         <p className="mt-6 w-full text-center text-balance font-['DM_Sans',sans-serif] text-[17px] font-normal leading-[1.35] tracking-normal text-[#777777] sm:mt-8 sm:text-[20px] md:mt-10 md:text-[24px]">
           Stay connected for the latest updates, announcements, and launch details.

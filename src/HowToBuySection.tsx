@@ -103,10 +103,12 @@ export default function HowToBuySection() {
               <p className="m-0 shrink-0 text-left font-['DM_Sans',sans-serif] text-xl font-bold leading-[1.2] tracking-[1.5px] text-[#999999]">
                 Contract Address
               </p>
-              <div className="box-border flex w-fit max-w-full items-center gap-[10px] rounded-[10px] border border-[#DDDDDD] bg-[#F7F5F0] px-5 py-3">
-                <span className="min-w-0 font-['DM_Sans',sans-serif] text-xl font-normal leading-[1.2] tracking-normal text-[#444444] sm:whitespace-nowrap">
-                  {PLACEHOLDER_CONTRACT}
-                </span>
+              <div className="@container box-border flex w-full max-w-full min-w-0 items-center gap-[10px] rounded-[10px] border border-[#DDDDDD] bg-[#F7F5F0] px-5 py-3 sm:w-fit sm:max-w-none">
+                <div className="min-w-0 flex-1 sm:flex-none">
+                  <span className="inline-block max-w-full whitespace-nowrap font-['DM_Sans',sans-serif] font-normal leading-[1.2] tracking-normal text-[#444444] max-sm:text-[clamp(10px,calc(100cqi/19.5),1.25rem)] sm:text-xl">
+                    {PLACEHOLDER_CONTRACT}
+                  </span>
+                </div>
                 <button
                   type="button"
                   className="inline-flex shrink-0 items-center justify-center rounded-md p-1.5 text-[#374151] transition-colors hover:bg-[#E5E7EB] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D4A9C]"

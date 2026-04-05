@@ -17,9 +17,9 @@ export default function ContractAnnouncementBar() {
   }, [])
 
   return (
-    <div className="mt-0 flex w-full max-w-full flex-nowrap flex-row items-stretch gap-2 max-[360px]:gap-1.5 max-[1274px]:max-w-[min(100%,calc(100vw-1.25rem))] min-[1275px]:mt-0 min-[1275px]:gap-2.5 min-[1275px]:w-max min-[1275px]:max-w-[min(100%,calc(100vw-2.5rem))]">
-      <div className="box-border flex min-h-[44px] min-w-0 flex-1 items-center justify-center rounded-[10px] border-[1.31px] border-solid border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.04)] px-2 py-2.5 max-[360px]:px-2 sm:px-3 min-[1275px]:w-max min-[1275px]:flex-none min-[1275px]:px-4 min-[1275px]:py-3">
-        <p className="m-0 w-full min-w-0 whitespace-nowrap text-center font-['DM_Sans',sans-serif] text-[clamp(9px,3.35vw,16px)] font-normal leading-[125%] tracking-[-0.02em] text-[#FFFFFF] min-[1275px]:leading-[120%] min-[1275px]:tracking-normal">
+    <div className="mt-0 flex w-full max-w-full flex-nowrap flex-row items-stretch gap-2 max-[360px]:gap-1.5 max-[1274px]:max-w-[min(100%,calc(100vw-1.25rem))] min-[1275px]:mt-0 min-[1275px]:justify-start min-[1275px]:gap-2.5 min-[1275px]:w-max min-[1275px]:max-w-[min(100%,calc(100vw-2.5rem))]">
+      <div className="box-border flex min-h-[44px] min-w-0 flex-1 items-center justify-center rounded-[10px] border-[1.31px] border-solid border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.04)] px-2 py-2.5 max-[360px]:px-2 sm:px-3 min-[1275px]:w-max min-[1275px]:flex-none min-[1275px]:justify-start min-[1275px]:px-4 min-[1275px]:py-3">
+        <p className="m-0 w-full min-w-0 whitespace-nowrap text-center font-['DM_Sans',sans-serif] text-[clamp(9px,3.35vw,16px)] font-normal leading-[125%] tracking-[-0.02em] text-[#FFFFFF] min-[1275px]:text-left min-[1275px]:leading-[120%] min-[1275px]:tracking-normal">
           {COPY_TEXT}
         </p>
       </div>
