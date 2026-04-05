@@ -93,7 +93,7 @@ export default function RoadmapSection() {
             return (
               <div
                 key={title}
-                className={`${bg} box-border flex min-h-[280px] w-full min-w-0 max-w-[610px] shrink-0 flex-col overflow-x-hidden overflow-y-visible rounded-2xl min-[1280px]:min-h-[322px]`}
+                className={`${bg} box-border flex min-h-[280px] w-full min-w-0 max-w-[610px] shrink-0 flex-col overflow-x-hidden overflow-y-visible rounded-2xl min-[1280px]:h-[325px] min-[1280px]:min-h-[325px] min-[1280px]:max-h-[325px] min-[1280px]:overflow-y-auto`}
               >
                 <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-3 px-6 py-4 sm:px-7 sm:py-5">
                   <div className="flex shrink-0 items-start justify-between gap-2 pt-1 sm:pt-2">
