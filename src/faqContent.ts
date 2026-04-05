@@ -24,6 +24,6 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'When does it launch?',
-    a: 'April 8 2026. Visit token.commonwealthunion.com for updates.',
+    a: 'Coming soon. Visit token.commonwealthunion.com for updates.',
   },
 ] as const

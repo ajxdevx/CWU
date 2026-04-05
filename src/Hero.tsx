@@ -31,7 +31,7 @@ export default function Hero() {
         />
 
         <div className="order-3 flex w-full min-w-0 shrink-0 flex-col items-stretch max-[1259px]:mt-auto max-[1259px]:pb-4 max-[1259px]:pt-0 sm:max-[1259px]:pb-5 min-[1260px]:order-2 min-[1260px]:mt-auto min-[1260px]:min-h-0 min-[1260px]:flex-1 min-[1260px]:self-stretch min-[1260px]:justify-end min-[1260px]:pb-2 min-[1260px]:pt-0">
-          <div className="flex w-full max-w-full min-w-0 justify-center px-2 sm:px-3 max-[1259px]:-translate-y-2 min-[1260px]:mt-auto min-[1260px]:-translate-y-[calc(6.5rem_*_0.95_*_0.95)] min-[1260px]:justify-end min-[1260px]:px-0 min-[1260px]:pr-10">
+          <div className="flex w-full max-w-full min-w-0 justify-center px-2 sm:px-3 max-[1259px]:-translate-y-[calc(0.5rem_*_0.925)] min-[1260px]:mt-auto min-[1260px]:-translate-y-[calc(6.5rem_*_0.95_*_0.95_*_0.925)] min-[1260px]:justify-end min-[1260px]:px-0 min-[1260px]:pr-10">
             <ContractAnnouncementBar />
           </div>
         </div>
