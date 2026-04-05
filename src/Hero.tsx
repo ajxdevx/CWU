@@ -26,11 +26,11 @@ export default function Hero() {
         </div>
 
         <div
-          className="pointer-events-none order-2 block min-h-[min(22svh,200px)] w-full shrink-0 max-[639px]:min-h-[min(20svh,180px)] sm:max-[1259px]:min-h-[min(26svh,240px)] min-[1260px]:hidden"
+          className="pointer-events-none order-2 block min-h-[min(18svh,160px)] w-full shrink-0 max-[639px]:min-h-[min(15svh,140px)] sm:max-[1259px]:min-h-[min(22svh,200px)] min-[1260px]:hidden"
           aria-hidden
         />
 
-        <div className="order-3 flex w-full min-w-0 shrink-0 flex-col items-stretch max-[1259px]:mt-16 max-[1259px]:pb-4 sm:max-[1259px]:mt-20 sm:max-[1259px]:pb-5 min-[1260px]:order-2 min-[1260px]:mt-auto min-[1260px]:min-h-0 min-[1260px]:flex-1 min-[1260px]:self-stretch min-[1260px]:justify-end min-[1260px]:pb-2 min-[1260px]:pt-0">
+        <div className="order-3 flex w-full min-w-0 shrink-0 flex-col items-stretch max-[1259px]:mt-6 max-[1259px]:pb-4 sm:max-[1259px]:mt-8 sm:max-[1259px]:pb-5 min-[1260px]:order-2 min-[1260px]:mt-auto min-[1260px]:min-h-0 min-[1260px]:flex-1 min-[1260px]:self-stretch min-[1260px]:justify-end min-[1260px]:pb-2 min-[1260px]:pt-0">
           <div className="flex w-full max-w-full min-w-0 justify-center px-2 sm:px-3 max-[1259px]:translate-y-0 min-[1260px]:mt-auto min-[1260px]:-translate-y-14 min-[1260px]:justify-end min-[1260px]:px-0 min-[1260px]:pr-10">
             <ContractAnnouncementBar />
           </div>
