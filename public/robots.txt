@@ -1,0 +1,7 @@
+# https://www.robotstxt.org/robotstxt.html
+# Update the sitemap host if the site is served from another domain.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://token.commonwealthunion.com/sitemap.xml

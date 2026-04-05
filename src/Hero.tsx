@@ -1,21 +1,39 @@
-import CoinVisual from './CoinVisual'
+import HeaderActionButton from './HeaderActionButton'
+import LearnMoreButton from './LearnMoreButton'
+import ContractAnnouncementBar from './ContractAnnouncementBar'
 import HeroHeadline from './HeroHeadline'
 import HeroLaunchLine from './HeroLaunchLine'
 import HeroSubhead from './HeroSubhead'
 
 export default function Hero() {
   return (
-    <section className="hero-section-scroll flex min-h-0 w-full min-w-0 flex-1 flex-col overflow-hidden px-4 pt-1 pb-4 sm:px-6 sm:pt-2 sm:pb-5 max-[1659px]:justify-start min-[1660px]:px-8 min-[1660px]:py-4 min-[1660px]:pt-10">
-      <div className="mx-auto flex min-h-0 min-w-0 w-full max-w-[1685px] flex-1 max-[1659px]:flex-col-reverse max-[1659px]:flex-none max-[1659px]:grow-0 gap-10 overflow-x-clip sm:gap-12 min-[1660px]:flex-row min-[1660px]:flex-1 min-[1660px]:items-start min-[1660px]:justify-between min-[1660px]:gap-8">
-        <div className="flex min-h-0 min-w-0 shrink-0 flex-col items-start gap-3 sm:gap-4 pt-4 sm:pt-6 min-[1660px]:mt-3 min-[1660px]:shrink-0 min-[1660px]:gap-4 min-[1660px]:pt-0">
+    <section className="hero-section-scroll relative flex min-h-[calc(100svh-6rem)] w-full min-w-0 shrink-0 flex-col overflow-hidden px-4 pt-8 pb-4 sm:min-h-[calc(100svh-5.5rem)] sm:px-6 sm:pt-10 sm:pb-5 max-[1259px]:justify-start min-[1260px]:min-h-[calc(100svh-7rem)] min-[1260px]:px-8 min-[1260px]:py-4 min-[1260px]:pt-10">
+      <div className="relative z-10 mx-auto flex min-h-0 min-w-0 w-full max-w-[1685px] flex-1 flex-col gap-6 sm:gap-8 min-[1260px]:flex-row min-[1260px]:items-start min-[1260px]:justify-between min-[1260px]:gap-8 min-[1260px]:pb-4">
+        {/*
+          ≤1260px reading order: header (App) → hero copy + CTAs → SVG band (spacer, bg shows through) → contract bar.
+          ≥1260px: row layout unchanged; spacer hidden.
+        */}
+        <div className="order-1 flex min-h-0 min-w-0 shrink-0 flex-col items-center gap-3 sm:gap-4 pt-5 sm:pt-7 min-[1260px]:mt-3 min-[1260px]:max-w-[848.7px] min-[1260px]:shrink-0 min-[1260px]:items-start min-[1260px]:gap-4 min-[1260px]:pt-0">
           <HeroLaunchLine />
-          <div className="relative min-h-0 w-full max-w-full shrink-0 overflow-x-clip min-[1660px]:h-[333px] min-[1660px]:w-[848.7px] min-[1660px]:max-w-none min-[1660px]:overflow-visible">
+          <div className="relative min-h-0 w-full max-w-full shrink-0 overflow-x-visible min-[1260px]:h-[333px] min-[1260px]:w-[848.7px] min-[1260px]:max-w-none">
             <HeroHeadline />
             <HeroSubhead />
           </div>
+          <div className="mt-10 flex w-full min-w-0 shrink-0 flex-wrap items-center justify-center gap-3 sm:mt-12 sm:gap-4 min-[1260px]:mt-16 min-[1260px]:justify-start">
+            <HeaderActionButton />
+            <LearnMoreButton />
+          </div>
         </div>
-        <div className="flex w-full min-w-0 shrink-0 flex-col items-center justify-start overflow-x-clip px-0 pt-0 pb-8 sm:pb-10 min-[1660px]:w-auto min-[1660px]:self-start min-[1660px]:overflow-visible min-[1660px]:pb-0 min-[1660px]:pt-0">
-          <CoinVisual />
+
+        <div
+          className="pointer-events-none order-2 block min-h-[min(22svh,200px)] w-full shrink-0 max-[639px]:min-h-[min(20svh,180px)] sm:max-[1259px]:min-h-[min(26svh,240px)] min-[1260px]:hidden"
+          aria-hidden
+        />
+
+        <div className="order-3 flex w-full min-w-0 shrink-0 flex-col items-stretch max-[1259px]:mt-16 max-[1259px]:pb-4 sm:max-[1259px]:mt-20 sm:max-[1259px]:pb-5 min-[1260px]:order-2 min-[1260px]:mt-auto min-[1260px]:min-h-0 min-[1260px]:flex-1 min-[1260px]:self-stretch min-[1260px]:justify-end min-[1260px]:pb-2 min-[1260px]:pt-0">
+          <div className="flex w-full max-w-full min-w-0 justify-center px-2 sm:px-3 max-[1259px]:translate-y-0 min-[1260px]:mt-auto min-[1260px]:-translate-y-14 min-[1260px]:justify-end min-[1260px]:px-0 min-[1260px]:pr-10">
+            <ContractAnnouncementBar />
+          </div>
         </div>
       </div>
     </section>

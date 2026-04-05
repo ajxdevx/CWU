@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  #root {
+    scroll-behavior: smooth;
+  }
+}
+
 html {
   height: 100%;
   overflow-x: clip;
@@ -24,13 +34,36 @@ body {
 
 #root {
   height: 100dvh;
-  max-height: 100dvh;
-  min-height: 0;
+  height: 100svh;
   min-width: 0;
   max-width: 100%;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
+  /* Match header/stacked nav offset so scrollIntoView / anchors don’t hide the bar */
+  scroll-padding-top: 7rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#root::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 /* Shorter viewports: page can grow past 100dvh and scroll vertically when content needs it. */
@@ -79,11 +112,9 @@ body {
 
 @keyframes hero-header-in {
   from {
-    opacity: 0;
     transform: translateY(6px);
   }
   to {
-    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -121,9 +152,81 @@ body {
   }
 }
 
+@keyframes hero-cover-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Fold SVG: bigger on ≤1259px — img uses .hero-intro-cover animation ending at scale(1), which hid parent scales. */
+@keyframes hero-fold-cover-in-sm {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(1.08);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1.58);
+  }
+}
+
+@keyframes hero-fold-cover-in-md {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1.36);
+  }
+}
+
+@keyframes cwu-watermark-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Isolate paint/compositing so the marquee doesn’t thrash the rest of the page */
+.cwu-watermark-marquee-viewport {
+  contain: layout style paint;
+  isolation: isolate;
+  transform: translateZ(0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cwu-watermark-marquee-track {
+    display: flex;
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: cwu-watermark-marquee 42s linear infinite;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cwu-watermark-marquee-track {
+    animation: none;
+  }
+
+  .cwu-watermark-marquee-track > span:last-of-type {
+    display: none;
+  }
+}
+
+/* Opacity is never 0 here — iOS/Safari can leave keyframed opacity stuck at 0 after load. */
 .hero-intro-header {
-  opacity: 0;
-  animation: hero-header-in 0.9s var(--hero-ease) forwards;
+  animation: hero-header-in 0.9s var(--hero-ease) both;
   animation-delay: 0.09s;
 }
 
@@ -161,6 +264,54 @@ body {
   animation-delay: 0.3s;
 }
 
+/* Hero main graphic — full-bleed cover; no tilt (coin uses .hero-intro-coin). */
+.hero-intro-cover {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  transform-origin: center center;
+  animation: hero-cover-in 0.85s var(--hero-ease) forwards;
+  animation-delay: 0.28s;
+}
+
+@media (max-width: 639px) {
+  .hero-fold-graphic .hero-intro-cover {
+    animation-name: hero-fold-cover-in-sm;
+    animation-duration: 0.85s;
+    animation-timing-function: var(--hero-ease);
+    animation-delay: 0.28s;
+    animation-fill-mode: forwards;
+    transform-origin: 76% 64%;
+  }
+
+  .hero-fold-graphic-inner {
+    transform: translateX(min(-2.5rem, -15vw)) translateY(min(7.1vh, 2.95rem));
+    transform-origin: 76% 64%;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1259px) {
+  .hero-fold-graphic .hero-intro-cover {
+    animation-name: hero-fold-cover-in-md;
+    animation-duration: 0.85s;
+    animation-timing-function: var(--hero-ease);
+    animation-delay: 0.28s;
+    animation-fill-mode: forwards;
+    transform-origin: 50% 58%;
+  }
+
+  .hero-fold-graphic-inner {
+    transform: translateX(0) translateY(min(8.5vh, 4rem));
+    transform-origin: 50% 58%;
+  }
+}
+
+@media (min-width: 1260px) {
+  .hero-fold-graphic-inner {
+    transform: translateX(3.25vw);
+    transform-origin: 90% 50%;
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   @media (prefers-reduced-motion: no-preference) {
     .hero-intro-coin {
@@ -180,6 +331,18 @@ body {
   }
 }
 
+@media (hover: hover) and (pointer: fine) {
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-intro-cover {
+      transition: transform 0.4s var(--hero-ease);
+    }
+
+    .hero-intro-cover:hover {
+      transform: scale(1.01);
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-intro-header,
   .hero-intro-launch,
@@ -194,5 +357,49 @@ body {
     animation: none !important;
     opacity: 1 !important;
     transform: rotate(9.14deg) translateY(44px) !important;
+  }
+
+  .hero-intro-cover {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-intro-cover:hover {
+    transform: none !important;
+  }
+
+  @media (max-width: 639px) {
+    .hero-fold-graphic .hero-intro-cover {
+      transform: scale(1.58) !important;
+    }
+  }
+
+  @media (min-width: 640px) and (max-width: 1259px) {
+    .hero-fold-graphic .hero-intro-cover {
+      transform: scale(1.36) !important;
+    }
+  }
+}
+
+/* Scroll-in reveal for main sections (SectionReveal.tsx): fade only, no vertical slide */
+@media (prefers-reduced-motion: no-preference) {
+  .section-reveal {
+    opacity: 0;
+    transition: opacity 0.7s ease-out;
+    transition-delay: var(--section-reveal-delay, 0ms);
+  }
+
+  .section-reveal--visible {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-reveal,
+  .section-reveal--visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

@@ -5,7 +5,7 @@ export type LogoProps = {
 
 export default function Logo({ line1, line2 }: LogoProps) {
   return (
-    <div className="flex min-h-0 w-full min-w-0 items-center gap-3 sm:gap-4 min-[1800px]:h-[109px] min-[1800px]:gap-4">
+    <div className="flex min-h-0 w-auto max-w-full min-w-0 items-center gap-3 sm:gap-4 min-[1800px]:h-full min-[1800px]:gap-4">
       <div className="shrink-0">
         <img
           src="/headerlogosvg.svg"
@@ -17,7 +17,7 @@ export default function Logo({ line1, line2 }: LogoProps) {
         />
       </div>
       <div
-        className="flex min-h-0 min-w-0 flex-1 flex-col justify-center gap-0.5 rounded-none py-0.5 text-left sm:gap-1 min-[1800px]:h-[40px] min-[1800px]:max-w-[688px] min-[1800px]:flex-none min-[1800px]:shrink-0 min-[1800px]:gap-0 min-[1800px]:py-0"
+        className="flex min-h-0 min-w-0 flex-col justify-center gap-0.5 rounded-none py-0 text-left sm:gap-1 min-[1800px]:max-w-[688px] min-[1800px]:shrink-0 min-[1800px]:gap-0"
         style={{ fontFamily: 'Georgia, serif' }}
       >
         <span className="text-[14px] font-normal leading-[118%] text-[#FFFFFF] sm:text-[16px] md:text-[18px] min-[1800px]:text-[19.73px] min-[1800px]:leading-[100%]">
