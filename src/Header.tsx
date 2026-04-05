@@ -67,7 +67,7 @@ export default function Header() {
   return (
     <header className="hero-intro-header relative z-30 w-full min-w-0 shrink-0 max-[1799px]:bg-transparent px-4 pb-2.5 pt-[max(0.625rem,env(safe-area-inset-top,0px))] sm:px-5 sm:pb-3 sm:pt-[max(0.75rem,env(safe-area-inset-top,0px))] min-[1800px]:bg-transparent min-[1800px]:px-0 min-[1800px]:py-0">
       <div className="relative mx-auto flex min-h-0 w-full max-w-[min(1685px,calc(100vw-2rem))] shrink-0 items-center justify-between gap-3 rounded-[8px] bg-[#041825] px-4 py-3 sm:gap-4 sm:rounded-[10px] sm:px-5 sm:py-3.5 md:max-w-[min(1685px,calc(100vw-2.5rem))] lg:max-w-[min(1685px,calc(100vw-3rem))] min-[1800px]:mx-0 min-[1800px]:ml-[110px] min-[1800px]:h-[109px] min-[1800px]:w-[1685px] min-[1800px]:max-w-none min-[1800px]:gap-8 min-[1800px]:px-8 min-[1800px]:py-0">
-        <div className="flex min-w-0 flex-1 items-center gap-20 sm:gap-28 min-[1260px]:gap-[clamp(7rem,12vw,14rem)] min-[1800px]:gap-52">
+        <div className="flex min-w-0 flex-1 items-center gap-20 sm:gap-28 min-[1275px]:gap-[clamp(7rem,12vw,14rem)] min-[1800px]:gap-52">
           <div className="min-w-0 shrink-0">
             <a
               href="/"
@@ -83,17 +83,17 @@ export default function Header() {
               <Logo line1="COMMONWEALTH" line2="UNION BLOCKCHAIN" />
             </a>
           </div>
-          <div className="hidden min-w-0 flex-1 min-[1260px]:block">
+          <div className="hidden min-w-0 flex-1 min-[1275px]:block">
             <HeaderNav />
           </div>
         </div>
 
-        <div className="hidden shrink-0 items-center gap-6 sm:gap-8 min-[1260px]:flex min-[1800px]:gap-10">
+        <div className="hidden shrink-0 items-center gap-6 sm:gap-8 min-[1275px]:flex min-[1800px]:gap-10">
           <HeaderSocialLinks />
           <HeaderActionButton />
         </div>
 
-        <div className="flex shrink-0 items-center min-[1260px]:hidden">
+        <div className="flex shrink-0 items-center min-[1275px]:hidden">
           <button
             type="button"
             className="inline-flex size-11 shrink-0 items-center justify-center rounded-lg text-[#F0F0F0] transition-[background-color,color] hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3CDAC4]"
@@ -114,7 +114,7 @@ export default function Header() {
                 aria-hidden
                 className={[
                   /* Below header only — same top as menu — so the bar stays sharp (no blur/tint). */
-                  'fixed left-0 right-0 bottom-0 z-40 bg-[#041825]/55 backdrop-blur-[7px] transition-opacity duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none min-[1260px]:hidden',
+                  'fixed left-0 right-0 bottom-0 z-40 bg-[#041825]/55 backdrop-blur-[7px] transition-opacity duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none min-[1275px]:hidden',
                   'top-[calc(env(safe-area-inset-top,0px)+6.5rem)] sm:top-[calc(env(safe-area-inset-top,0px)+7.25rem)]',
                   panelVisible
                     ? 'pointer-events-auto opacity-100'
@@ -126,7 +126,7 @@ export default function Header() {
                 id={menuId}
                 className={[
                   /* Portal to body: header uses transform animation, which breaks fixed positioning inside it */
-                  'fixed inset-x-4 z-100 flex min-h-0 flex-col overflow-hidden overscroll-contain rounded-2xl border border-white/15 bg-[#041825] shadow-[0_24px_60px_rgba(0,0,0,0.5)] sm:inset-x-5 min-[1260px]:hidden',
+                  'fixed inset-x-4 z-100 flex min-h-0 flex-col overflow-hidden overscroll-contain rounded-2xl border border-white/15 bg-[#041825] shadow-[0_24px_60px_rgba(0,0,0,0.5)] sm:inset-x-5 min-[1275px]:hidden',
                 /* ~80% of viewport height on mobile/tablet menu; clamped so it never spills past the screen. */
                 'top-[calc(env(safe-area-inset-top,0px)+6.5rem)] sm:top-[calc(env(safe-area-inset-top,0px)+7.25rem)]',
                 'h-[min(80dvh,calc(100dvh-env(safe-area-inset-top,0px)-env(safe-area-inset-bottom,0px)-6.5rem-0.5rem))] sm:h-[min(80dvh,calc(100dvh-env(safe-area-inset-top,0px)-env(safe-area-inset-bottom,0px)-7.25rem-0.75rem))]',

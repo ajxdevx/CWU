@@ -35,7 +35,7 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="box-border flex min-h-0 w-full min-w-0 shrink-0 scroll-mt-28 flex-col bg-white lg:min-h-[800px]"
+      className="box-border flex min-h-0 w-full min-w-0 shrink-0 overflow-x-hidden scroll-mt-28 flex-col bg-white lg:min-h-[800px]"
       aria-labelledby="faq-heading"
     >
       <div
@@ -43,12 +43,12 @@ export default function FAQSection() {
       >
         <div className="mx-auto flex w-full max-w-full min-w-0 shrink-0 flex-col">
           {/*
-            One line: nowrap + fluid size from container width so the phrase fits without wrapping.
+            Fluid size from container. Below 800px and 800–1274px: wrap. From 1275px: single line + same center nudge as before.
           */}
           <div className={`mx-auto w-full ${CONTENT_MAX} @container`}>
             <h2
               id="faq-heading"
-              className="m-0 w-full whitespace-nowrap text-left font-[Georgia,serif] text-[clamp(1.5rem,calc(0.95rem+100cqi/15.5),6rem)] font-normal leading-[1.12] tracking-normal text-[#111111] md:text-center md:-translate-x-[calc(0.75rem_*_1.05)] lg:-translate-x-[calc(1.05rem_*_1.05)]"
+              className="m-0 w-full min-w-0 whitespace-nowrap font-[Georgia,serif] text-[clamp(1.5rem,calc(0.95rem+100cqi/15.5),6rem)] font-normal leading-[1.12] tracking-normal text-[#111111] max-[799px]:whitespace-normal max-[799px]:text-balance sm:max-[1274px]:whitespace-normal sm:max-[1274px]:text-balance min-[1275px]:whitespace-nowrap text-left md:text-center md:-translate-x-[calc(0.75rem_*_1.05)] lg:-translate-x-[calc(1.05rem_*_1.05)]"
             >
               <span className="inline">Frequently asked </span>
               <span className="inline">questions</span>

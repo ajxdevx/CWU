@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Mobile-first: default utilities apply below 800px; `sm:` and `md:` start at 800px. */
+@theme {
+  --breakpoint-sm: 800px;
+  --breakpoint-md: 800px;
+}
+
 :root {
   --hero-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --cwu-page-gradient: linear-gradient(
@@ -183,7 +189,7 @@ body::-webkit-scrollbar {
   }
 }
 
-/* Fold SVG: bigger on ≤1259px — img uses .hero-intro-cover animation ending at scale(1), which hid parent scales. */
+/* Fold SVG: bigger on ≤1274px — img uses .hero-intro-cover animation ending at scale(1), which hid parent scales. */
 @keyframes hero-fold-cover-in-sm {
   from {
     opacity: 0;
@@ -293,7 +299,7 @@ body::-webkit-scrollbar {
   animation-delay: 0.28s;
 }
 
-@media (max-width: 639px) {
+@media (max-width: 799px) {
   .hero-fold-graphic .hero-intro-cover {
     animation-name: hero-fold-cover-in-sm;
     animation-duration: 0.85s;
@@ -309,7 +315,7 @@ body::-webkit-scrollbar {
   }
 }
 
-@media (min-width: 640px) and (max-width: 1259px) {
+@media (min-width: 800px) and (max-width: 1274px) {
   .hero-fold-graphic .hero-intro-cover {
     animation-name: hero-fold-cover-in-md;
     animation-duration: 0.85s;
@@ -325,7 +331,7 @@ body::-webkit-scrollbar {
   }
 }
 
-@media (min-width: 1260px) {
+@media (min-width: 1275px) {
   .hero-fold-graphic-inner {
     transform: translateX(3.25vw);
     transform-origin: 90% 50%;
@@ -389,13 +395,13 @@ body::-webkit-scrollbar {
     transform: none !important;
   }
 
-  @media (max-width: 639px) {
+  @media (max-width: 799px) {
     .hero-fold-graphic .hero-intro-cover {
       transform: scale(1.58) !important;
     }
   }
 
-  @media (min-width: 640px) and (max-width: 1259px) {
+  @media (min-width: 800px) and (max-width: 1274px) {
     .hero-fold-graphic .hero-intro-cover {
       transform: scale(1.36) !important;
     }

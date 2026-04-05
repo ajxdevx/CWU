@@ -60,7 +60,7 @@ const badgeClass = (tone: 'active' | 'direction') =>
 export default function RoadmapSection() {
   return (
     <section
-      className="box-border flex min-h-[765px] w-full min-w-0 shrink-0 flex-col overflow-y-auto bg-[#F7F5F0] py-8 sm:py-10 lg:h-[765px] lg:min-h-[765px] lg:overflow-hidden lg:py-10"
+      className="box-border flex min-h-[765px] w-full min-w-0 shrink-0 flex-col overflow-x-hidden overflow-y-auto bg-[#F7F5F0] py-8 sm:py-10 lg:h-[765px] lg:min-h-[765px] lg:overflow-hidden lg:py-10"
       aria-labelledby="roadmap-section-title"
     >
       <div className="mx-auto flex h-full min-h-0 w-full max-w-[1920px] min-w-0 flex-1 flex-col px-4 sm:px-6 lg:px-10 min-[1800px]:px-8">
@@ -72,22 +72,28 @@ export default function RoadmapSection() {
             id="roadmap-section-title"
             className="mt-3 w-full max-w-[664px] text-left font-[Georgia,serif] text-[clamp(1.875rem,4.25vw+0.5rem,4rem)] font-normal leading-[1.2] tracking-normal sm:mt-4 lg:mt-5 lg:text-[64px]"
           >
-            <span className="block whitespace-nowrap" style={{ color: ROADMAP_HEADLINE_SECOND }}>
+            <span
+              className="block whitespace-nowrap sm:max-[1274px]:whitespace-normal sm:max-[1274px]:text-balance min-[1275px]:whitespace-nowrap"
+              style={{ color: ROADMAP_HEADLINE_SECOND }}
+            >
               A digital layer for{' '}
             </span>
-            <span className="block whitespace-nowrap" style={{ color: ROADMAP_HEADLINE_FIRST }}>
+            <span
+              className="block whitespace-nowrap sm:max-[1274px]:whitespace-normal sm:max-[1274px]:text-balance min-[1275px]:whitespace-nowrap"
+              style={{ color: ROADMAP_HEADLINE_FIRST }}
+            >
               real-world opportunity.
             </span>
           </h2>
         </div>
 
-        <div className="mt-6 flex min-h-0 flex-1 flex-col items-center gap-5 sm:mt-8 md:flex-row md:flex-nowrap md:justify-center lg:mt-10">
+        <div className="mt-6 flex min-h-0 w-full min-w-0 flex-1 flex-col items-center gap-5 sm:mt-8 min-[1275px]:mt-10 min-[1275px]:flex-row min-[1275px]:flex-nowrap min-[1275px]:justify-center">
           {CARDS.map(({ badge, badgeTone, title, body, tags, bg }, cardIndex) => {
             const isLastCard = cardIndex === CARDS.length - 1
             return (
               <div
                 key={title}
-                className={`${bg} box-border flex min-h-[280px] w-full max-w-[610px] shrink-0 flex-col overflow-x-hidden overflow-y-auto rounded-2xl md:h-[322px] md:min-h-[322px] md:w-[610px] md:max-w-none`}
+                className={`${bg} box-border flex min-h-[280px] w-full min-w-0 max-w-[610px] shrink-0 flex-col overflow-x-hidden overflow-y-auto rounded-2xl min-[1275px]:h-[322px] min-[1275px]:min-h-[322px] min-[1275px]:w-[610px] min-[1275px]:max-w-none`}
               >
                 <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-3 px-6 py-4 sm:px-7 sm:py-5">
                   <div className="flex shrink-0 items-start justify-between gap-2 pt-1 sm:pt-2">
@@ -97,7 +103,7 @@ export default function RoadmapSection() {
                       {badge}
                     </span>
                     <ArrowRight
-                      className="size-[1.35rem] shrink-0 origin-center translate-y-1 rotate-90 text-white opacity-90 sm:size-6 md:translate-y-0 md:rotate-0"
+                      className="size-[1.35rem] shrink-0 origin-center translate-y-1 rotate-90 text-white opacity-90 sm:size-6 min-[1275px]:translate-y-0 min-[1275px]:rotate-0"
                       strokeWidth={2.2}
                       aria-hidden
                     />

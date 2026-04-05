@@ -61,7 +61,7 @@ export default function CommonwealthSection() {
   return (
     <section
       id="about"
-      className="flex w-full min-w-0 scroll-mt-28 flex-col bg-[#F7F5F0]"
+      className="flex w-full min-w-0 overflow-x-hidden scroll-mt-28 flex-col bg-[#F7F5F0]"
       aria-labelledby="cwu-about-heading"
     >
       <div className="relative flex min-h-svh min-w-0 flex-col">

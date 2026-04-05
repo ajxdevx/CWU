@@ -43,7 +43,7 @@ export default function HowToBuySection() {
   return (
     <section
       id="how-to-buy"
-      className="box-border w-full min-w-0 shrink-0 scroll-mt-28 border border-[#DDDDDD] bg-white lg:min-h-[1013px]"
+      className="box-border w-full min-w-0 shrink-0 overflow-x-hidden scroll-mt-28 border border-[#DDDDDD] bg-white lg:min-h-[1013px]"
       aria-labelledby="how-to-buy-heading"
     >
       <div className={`flex h-full min-h-0 flex-col ${SECTION_GUTTER}`}>
@@ -64,7 +64,7 @@ export default function HowToBuySection() {
             {STEPS.map(({ n, title, body }) => (
               <li
                 key={n}
-                className="flex flex-col gap-3 py-6 sm:flex-row sm:items-start sm:gap-x-6 sm:py-10 md:py-12 md:gap-x-8"
+                className="flex min-w-0 flex-col gap-3 py-6 sm:flex-row sm:items-start sm:gap-x-6 sm:py-10 md:py-12 md:gap-x-8"
               >
                 <div className="flex min-w-0 w-full shrink-0 flex-row items-center justify-start gap-[10px] sm:w-[min(100%,28rem)] md:max-w-[30rem]">
                   <span className="inline-flex w-9 shrink-0 justify-end font-['DM_Sans',sans-serif] text-lg font-semibold tabular-nums leading-none text-[#3CDAC4] sm:w-12 sm:text-xl">
@@ -74,7 +74,7 @@ export default function HowToBuySection() {
                     {title}
                   </h3>
                 </div>
-                <div className="min-w-0 flex-1 basis-0 sm:pl-24 md:pl-40 lg:pl-52 xl:pl-64 2xl:pl-72">
+                <div className="min-w-0 flex-1 basis-0 max-[799px]:pl-0 sm:max-[1274px]:pl-40 min-[1275px]:pl-24 md:min-[1275px]:pl-40 lg:min-[1275px]:pl-52 xl:min-[1275px]:pl-64 2xl:min-[1275px]:pl-72">
                   <p className="m-0 max-w-[643px] text-left font-['DM_Sans',sans-serif] text-[clamp(1rem,3.8vw,1.375rem)] font-normal leading-[1.25] tracking-normal text-[#777777] sm:text-[clamp(1.0625rem,2.2vw,1.5rem)] lg:text-2xl lg:leading-[1.1]">
                     {n === '03' ? (
                       <>

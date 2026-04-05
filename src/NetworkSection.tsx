@@ -44,7 +44,7 @@ export default function NetworkSection() {
   return (
     <section
       id="network"
-      className="relative w-full shrink-0 scroll-mt-28 bg-white"
+      className="relative w-full min-w-0 shrink-0 overflow-x-hidden scroll-mt-28 bg-white"
       aria-labelledby="network-section-title"
     >
       <div className="mx-auto box-border w-full max-w-[1685px] px-4 py-12 sm:px-6 sm:py-16 lg:px-10 lg:py-20 min-[900px]:flex min-[900px]:h-[485px] min-[900px]:flex-col min-[900px]:justify-center min-[1800px]:px-8">
@@ -58,12 +58,12 @@ export default function NetworkSection() {
                 id="network-section-title"
                 className="m-0 w-full text-center font-[Georgia,serif] text-[clamp(1.75rem,4.5vw+0.5rem,4rem)] font-normal leading-[1.1] tracking-[0] min-[900px]:text-left min-[900px]:text-[3.25rem] lg:text-[64px]"
               >
-                <span className="block whitespace-nowrap">
+                <span className="block whitespace-nowrap sm:max-[1274px]:whitespace-normal sm:max-[1274px]:text-balance min-[1275px]:whitespace-nowrap">
                   <span style={{ color: NETWORK_HEADLINE_DARK }}>A digital layer for </span>
                   <span style={{ color: NETWORK_HEADLINE_LIGHT }}>real-</span>
                 </span>
                 <span
-                  className="block whitespace-nowrap"
+                  className="block whitespace-nowrap sm:max-[1274px]:whitespace-normal sm:max-[1274px]:text-balance min-[1275px]:whitespace-nowrap"
                   style={{ color: NETWORK_HEADLINE_LIGHT }}
                 >
                   world opportunity.
@@ -79,11 +79,11 @@ export default function NetworkSection() {
         </div>
       </div>
 
-      <div className="grid w-full grid-cols-1 text-left md:grid-cols-3">
+      <div className="grid w-full min-w-0 grid-cols-1 text-left min-[1275px]:grid-cols-3">
         {COLUMNS.map(({ n, title, body, bodyLine2, bodyLine3, bg, iconSrc }) => (
           <div
             key={n}
-            className={`${bg} box-border flex min-h-[260px] flex-col overflow-y-auto px-5 py-8 sm:px-7 sm:py-10 md:h-[325px] md:min-h-[325px] lg:px-10 lg:py-14`}
+            className={`${bg} box-border flex min-h-[260px] min-w-0 flex-col overflow-x-hidden overflow-y-auto px-5 py-8 sm:px-7 sm:py-10 min-[1275px]:h-[325px] min-[1275px]:min-h-[325px] lg:px-10 lg:py-14`}
           >
             <div className="flex shrink-0 items-start justify-between gap-4">
               <img
@@ -101,10 +101,10 @@ export default function NetworkSection() {
               </span>
             </div>
             <div className="mt-auto flex min-h-0 w-full min-w-0 flex-col">
-              <h3 className="m-0 mb-3 font-[Georgia,serif] text-[clamp(1.375rem,0.28rem+3.9vw,2rem)] font-normal leading-[1.2] tracking-[0] text-white md:mb-4 md:text-[32px]">
+              <h3 className="m-0 mb-3 min-w-0 font-[Georgia,serif] text-[clamp(1.375rem,0.28rem+3.9vw,2rem)] font-normal leading-[1.2] tracking-[0] text-white md:mb-4 md:text-[32px]">
                 {title}
               </h3>
-              <p className="m-0 w-full font-['DM_Sans',sans-serif] text-[clamp(0.96875rem,0.32rem+3.05vw,1.22rem)] font-normal leading-[1.35] tracking-[0] text-white/80 md:text-[20px] md:leading-[23.9px]">
+              <p className="m-0 w-full min-w-0 break-words text-white/80 [overflow-wrap:anywhere] font-['DM_Sans',sans-serif] text-[clamp(0.96875rem,0.32rem+3.05vw,1.22rem)] font-normal leading-[1.35] tracking-[0] md:text-[20px] md:leading-[23.9px]">
                 {body}
                 {bodyLine2 != null ? (
                   <>
