@@ -14,14 +14,17 @@ const COLUMNS = [
   {
     n: '02',
     title: 'Network',
-    body: 'Connecting 150M SMEs and 100M+ diaspora professionals into one accessible ecosystem for cross-border commerce.',
+    body: 'Connecting 150M SMEs and 100M+ diaspora professionals into',
+    bodyLine2: 'one accessible ecosystem for cross-border',
+    bodyLine3: 'commerce.',
     bg: 'bg-[#0F3554]',
     iconSrc: '/Frame%2010.svg',
   },
   {
     n: '03',
     title: 'Infrastructure',
-    body: 'The vision extends into financial tools, settlement systems, and cross-border connectivity for a $19T economy.',
+    body: 'The vision extends into financial tools, settlement systems, and cross-border connectivity',
+    bodyLine2: 'for a $19T economy.',
     bg: 'bg-[#1A5588]',
     iconSrc: '/Frame%2015.svg',
   },
@@ -74,7 +77,7 @@ export default function NetworkSection() {
       </div>
 
       <div className="grid w-full grid-cols-1 text-left md:grid-cols-3">
-        {COLUMNS.map(({ n, title, body, bg, iconSrc }) => (
+        {COLUMNS.map(({ n, title, body, bodyLine2, bodyLine3, bg, iconSrc }) => (
           <div
             key={n}
             className={`${bg} box-border flex min-h-[260px] flex-col overflow-y-auto px-5 py-8 sm:px-7 sm:py-10 md:h-[325px] md:min-h-[325px] lg:px-10 lg:py-14`}
@@ -100,6 +103,18 @@ export default function NetworkSection() {
               </h3>
               <p className="m-0 w-full font-['DM_Sans',sans-serif] text-[clamp(0.96875rem,0.32rem+3.05vw,1.22rem)] font-normal leading-[1.35] tracking-[0] text-white/80 md:text-[20px] md:leading-[23.9px]">
                 {body}
+                {bodyLine2 != null ? (
+                  <>
+                    <br />
+                    {bodyLine2}
+                  </>
+                ) : null}
+                {bodyLine3 != null ? (
+                  <>
+                    <br />
+                    {bodyLine3}
+                  </>
+                ) : null}
               </p>
             </div>
           </div>

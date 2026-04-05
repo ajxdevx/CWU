@@ -19,7 +19,7 @@ const watermarkTextClass =
 
 function GlobeCard() {
   return (
-    <div className="relative aspect-4/3 w-full max-w-[750px] min-h-[200px] overflow-hidden rounded-[24px] bg-[#014778] sm:rounded-[28px] lg:aspect-auto lg:min-h-0 lg:flex-1">
+    <div className="relative aspect-4/3 w-full max-w-[750px] min-h-[200px] overflow-hidden rounded-[24px] bg-[#014778] sm:rounded-[28px] lg:aspect-auto lg:h-full lg:min-h-0 lg:max-w-none lg:w-full lg:flex-1">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-[1] opacity-[0.45]"
@@ -61,7 +61,7 @@ export default function CommonwealthSection() {
       <div className="relative flex min-h-svh min-w-0 flex-col">
         <div
           aria-hidden
-          className="cwu-watermark-marquee-viewport pointer-events-none absolute left-0 right-0 top-0 z-0 max-h-[40vh] overflow-x-hidden overflow-y-visible pt-8 pb-6 sm:pt-10 sm:pb-8 lg:pt-6 lg:pb-0"
+          className="cwu-watermark-marquee-viewport pointer-events-none absolute left-0 right-0 top-0 z-0 max-h-[40vh] overflow-x-hidden overflow-y-visible pt-8 pb-6 sm:pt-10 sm:pb-8 lg:pt-8 lg:pb-12"
         >
           <div className="cwu-watermark-marquee-track pl-4 sm:pl-6 lg:pl-10 min-[1800px]:pl-8">
             <span className={watermarkTextClass}>{WATERMARK_PHRASE}</span>
@@ -69,19 +69,19 @@ export default function CommonwealthSection() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto flex w-full max-w-[1685px] min-h-0 flex-1 flex-col px-4 pb-10 pt-28 sm:px-6 sm:pb-12 sm:pt-32 lg:px-10 lg:pb-16 lg:pt-32 min-[1800px]:px-8">
-          <div className="grid min-h-0 flex-1 grid-cols-1 content-end items-stretch gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
-            <div className="flex min-h-0 w-full max-w-[750px] flex-col lg:h-full">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1685px] min-h-0 flex-1 flex-col px-4 pb-10 pt-40 sm:px-6 sm:pb-12 sm:pt-44 lg:px-10 lg:pb-16 lg:pt-48 xl:pt-52 min-[1800px]:px-8">
+          <div className="grid min-h-0 flex-1 grid-cols-1 content-end items-stretch gap-10 lg:grid-cols-2 lg:content-stretch lg:items-stretch lg:gap-x-0 lg:gap-y-10">
+            <div className="flex w-full min-h-0 flex-col items-start lg:h-full lg:min-h-0 lg:items-stretch lg:pr-8 xl:pr-12">
               <GlobeCard />
             </div>
 
-            <div className="mx-auto flex min-h-0 w-full min-w-0 max-w-2xl flex-col items-center gap-5 pb-1 text-center sm:gap-6 lg:mx-0 lg:max-w-none lg:items-stretch lg:gap-8 lg:text-left">
-              <p className="m-0 font-['DM_Sans',sans-serif] text-xl font-semibold leading-[1.2] tracking-[1.8px] text-[#6B7280] sm:text-2xl">
+            <div className="mx-auto flex min-h-0 w-full min-w-0 max-w-2xl flex-col items-stretch gap-5 pb-1 text-left sm:gap-6 lg:mx-0 lg:max-w-none lg:min-w-0 lg:gap-8 lg:pl-8 xl:pl-12">
+              <p className="m-0 w-full text-left font-['DM_Sans',sans-serif] text-xl font-semibold leading-[1.2] tracking-[1.8px] text-[#6B7280] sm:text-2xl">
                 What is Commonwealth Union?
               </p>
               <h2
                 id="cwu-about-heading"
-                className="m-0 w-full max-w-none text-center font-[Georgia,serif] text-[clamp(1.75rem,4.5vw+0.5rem,4rem)] font-normal leading-[1.1] tracking-[0] min-[900px]:text-[3.25rem] lg:text-left lg:text-[64px]"
+                className="m-0 w-full max-w-none text-left font-[Georgia,serif] text-[clamp(1.75rem,4.5vw+0.5rem,4rem)] font-normal leading-[1.1] tracking-[0] min-[900px]:text-[3.25rem] lg:text-[64px]"
               >
                 <span className="block text-balance" style={{ color: HEADLINE_DARK }}>
                   An established global network spanning{' '}
@@ -90,19 +90,15 @@ export default function CommonwealthSection() {
                   all 56 nations
                 </span>
               </h2>
-              <div className="grid w-full min-w-0 grid-cols-1 gap-x-10 gap-y-4 text-center md:grid-cols-[minmax(0,3fr)_minmax(0,2.05fr)] md:gap-x-12 md:gap-y-5 lg:gap-x-16 lg:text-left xl:gap-x-20">
-                <p className="m-0 min-w-0 max-w-none font-['DM_Sans',sans-serif] text-[17px] font-normal leading-[1.45] tracking-normal text-[#777777] sm:text-[18px] md:text-[20px] md:leading-[25.4px]">
-                  Commonwealth Union is an established global network with 12 million readers, a $19 trillion GDP
-                  footprint, and an International Advisory Board of presidents, prime ministers, and senior statesmen.
-                  The CWU token is created by Commonwealth Union Blockchain Network, an official vertical of
-                  Commonwealth Union.
+              <div className="grid w-full min-w-0 grid-cols-1 gap-x-10 gap-y-4 text-left md:grid-cols-[minmax(0,3fr)_minmax(0,2.05fr)] md:gap-x-12 md:gap-y-5 lg:gap-x-16 xl:gap-x-20">
+                <p className="m-0 min-w-0 max-w-none text-left font-['DM_Sans',sans-serif] text-[17px] font-normal leading-[1.45] tracking-normal text-[#777777] sm:text-[18px] md:text-[20px] md:leading-[25.4px]">
+                  Commonwealth Union is an established global network with 12 million readers, a $19 trillion GDP footprint, and an International Advisory Board of presidents, prime ministers, and senior statesmen. The CWU token is created by Commonwealth Union Blockchain Network, an official vertical of Commonwealth Union.
                 </p>
-                <p className="m-0 min-w-0 max-w-none font-['DM_Sans',sans-serif] text-[17px] font-normal leading-[1.45] tracking-normal text-[#777777] sm:text-[18px] md:text-[20px] md:leading-[25.4px]">
-                  represented by His Highness Sheikh Saoud bin Faisal Sultan Alqasimi. It puts the network on-chain,
-                  opening up participation and cross-border commerce. Built for people, not politics.
+                <p className="m-0 min-w-0 max-w-none text-left font-['DM_Sans',sans-serif] text-[17px] font-normal leading-[1.45] tracking-normal text-[#777777] sm:text-[18px] md:text-[20px] md:leading-[25.4px]">
+                  represented by His Highness Sheikh Saoud bin Faisal Sultan Alqasimi. It puts the network on-chain, opening up participation and cross-border commerce. Built for people, not politics.
                 </p>
               </div>
-              <div className="mt-2 flex w-full max-w-full flex-nowrap items-stretch justify-center gap-2.5 lg:justify-start">
+              <div className="mt-2 flex w-full max-w-full flex-nowrap items-stretch justify-start gap-2.5">
                 <button
                   type="button"
                   className="box-border flex min-h-[64px] min-w-0 flex-1 items-center justify-center rounded-[14.19px] border-[1.42px] border-solid border-white/15 bg-[#014778] px-10 py-5 text-center transition-[filter,opacity] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#014778] lg:flex-none lg:w-fit"

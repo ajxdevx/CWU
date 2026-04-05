@@ -304,7 +304,7 @@ body::-webkit-scrollbar {
   }
 
   .hero-fold-graphic-inner {
-    transform: translateX(min(-2.5rem, -15vw)) translateY(min(7.1vh, 2.95rem));
+    transform: translateX(min(-2.5rem, -15vw)) translateY(min(10.2vh, 4.1rem));
     transform-origin: 76% 64%;
   }
 }
@@ -320,7 +320,7 @@ body::-webkit-scrollbar {
   }
 
   .hero-fold-graphic-inner {
-    transform: translateX(0) translateY(min(8.5vh, 4rem));
+    transform: translateX(0) translateY(min(11.8vh, 5.35rem));
     transform-origin: 50% 58%;
   }
 }
