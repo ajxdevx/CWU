@@ -1,6 +1,6 @@
 import { Copy } from 'lucide-react'
 
-/** Align with Leadership: 4 cards + gaps */
+/** Wider than the leadership carousel so steps stay left-aligned on large viewports */
 const SECTION_ROW_MAX = 'max-w-[1808px]'
 const SECTION_GUTTER = 'px-6 sm:px-8 md:px-10 lg:px-14 xl:px-16 2xl:px-20'
 
@@ -28,6 +28,12 @@ const STEPS = [
 ] as const
 
 const PLACEHOLDER_CONTRACT = 'To be announced at launch'
+
+/** Same as step index numerals (01, 02, …) */
+const STEP_ACCENT_CLASS = 'text-[#3CDAC4]'
+
+/** Jupiter aggregator (Solana) */
+const JUPITER_URL = 'https://jup.ag'
 
 export default function HowToBuySection() {
   const copyAddress = () => {
@@ -70,7 +76,22 @@ export default function HowToBuySection() {
                 </div>
                 <div className="min-w-0 flex-1 basis-0 sm:pl-24 md:pl-40 lg:pl-52 xl:pl-64 2xl:pl-72">
                   <p className="m-0 max-w-[643px] text-left font-['DM_Sans',sans-serif] text-[clamp(1rem,3.8vw,1.375rem)] font-normal leading-[1.25] tracking-normal text-[#777777] sm:text-[clamp(1.0625rem,2.2vw,1.5rem)] lg:text-2xl lg:leading-[1.1]">
-                    {body}
+                    {n === '03' ? (
+                      <>
+                        Go to{' '}
+                        <a
+                          href={JUPITER_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`${STEP_ACCENT_CLASS} rounded-sm underline decoration-[#3CDAC4]/60 underline-offset-[0.15em] transition-[text-decoration-color,opacity] hover:decoration-[#3CDAC4] hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D4A9C]`}
+                        >
+                          Jupiter
+                        </a>{' '}
+                        exchange and connect your Solana wallet to begin the swap.
+                      </>
+                    ) : (
+                      body
+                    )}
                   </p>
                 </div>
               </li>

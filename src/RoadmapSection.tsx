@@ -20,7 +20,7 @@ const CARDS = [
     title: 'Own blockchain',
     body: 'Purpose-built chain infrastructure for the unique needs of 56 interconnected economies.',
     tags: ['Custom chain', 'Governance'],
-    bg: 'bg-[#0F3554]',
+    bg: 'bg-[#014778]',
   },
   {
     badge: 'Direction',
@@ -29,7 +29,7 @@ const CARDS = [
     body:
       'Education, visa services, hospitality, and 500+ planned verticals for real economies.',
     tags: ['Education', 'Visa', 'Hotels', '500+ verticals'],
-    bg: 'bg-[#1A5588]',
+    bg: 'bg-[#2073A8]',
   },
 ] as const
 
@@ -72,11 +72,12 @@ export default function RoadmapSection() {
             id="roadmap-section-title"
             className="mt-3 w-full max-w-[664px] text-left font-[Georgia,serif] text-[clamp(1.875rem,4.25vw+0.5rem,4rem)] font-normal leading-[1.2] tracking-normal sm:mt-4 lg:mt-5 lg:text-[64px]"
           >
-            <span className="block whitespace-nowrap" style={{ color: ROADMAP_HEADLINE_FIRST }}>
-              A digital layer for
+            <span className="block whitespace-nowrap">
+              <span style={{ color: ROADMAP_HEADLINE_FIRST }}>A digital layer for </span>
+              <span style={{ color: ROADMAP_HEADLINE_SECOND }}>real-</span>
             </span>
             <span className="block whitespace-nowrap" style={{ color: ROADMAP_HEADLINE_SECOND }}>
-              real-world opportunity.
+              world opportunity.
             </span>
           </h2>
         </div>

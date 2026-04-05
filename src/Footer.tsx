@@ -1,3 +1,5 @@
+import Logo from './Logo'
+
 const NAVIGATE_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Network', href: '#network' },
@@ -27,23 +29,8 @@ export default function Footer() {
     <footer className="box-border flex min-h-[600px] w-full min-w-0 shrink-0 flex-col bg-[#0A1628]">
       <div className="mx-auto flex min-h-[600px] w-full max-w-[1920px] flex-1 flex-col px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-14 2xl:px-16">
         <div className="flex shrink-0 flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
-          <a
-            href="#about"
-            className="group flex max-w-full shrink-0 items-center gap-3 no-underline sm:gap-4"
-          >
-            <img
-              src="/headerlogosvg.svg"
-              alt=""
-              width={58}
-              height={61}
-              decoding="async"
-              className="block h-10 w-9 shrink-0 opacity-95 sm:h-[52px] sm:w-[50px]"
-            />
-            <span className="max-w-[254px] text-left font-[Georgia,serif] text-[14px] font-normal leading-[118%] tracking-normal text-white sm:text-[16px] md:text-[18px] lg:text-[19.73px] lg:leading-[100%]">
-              COMMONWEALTH UNION
-              <br />
-              NETWORK
-            </span>
+          <a href="#about" className="max-w-full shrink-0 no-underline opacity-95 hover:opacity-100">
+            <Logo line1="COMMONWEALTH" line2="UNION BLOCKCHAIN" />
           </a>
 
           <div className="grid w-full min-w-0 grid-cols-2 gap-x-6 sm:gap-x-12 lg:w-auto lg:grid-cols-[auto_auto] lg:shrink-0 lg:gap-x-8">

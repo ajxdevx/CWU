@@ -17,9 +17,13 @@ const WATERMARK_PHRASE = 'Where communities become economies'
 const watermarkTextClass =
   "inline-block shrink-0 whitespace-nowrap pr-14 font-[Georgia,serif] text-[clamp(2.25rem,8vw,120px)] font-normal leading-[1.2] tracking-[-1px] text-[#D2D8DB] sm:pr-20 lg:pr-28"
 
+/** Body copy: scales with column width (cqi) so manual line breaks track the same structure across widths */
+const aboutBodyClass =
+  "m-0 min-w-0 max-w-none text-left font-['DM_Sans',sans-serif] font-normal tracking-normal text-[#777777] leading-[1.45] [font-size:clamp(0.6875rem,calc(0.5rem+2.35cqi),1.25rem)]"
+
 function GlobeCard() {
   return (
-    <div className="relative aspect-4/3 w-full max-w-[750px] min-h-[200px] overflow-hidden rounded-[24px] bg-[#014778] sm:rounded-[28px] lg:aspect-auto lg:h-full lg:min-h-0 lg:max-w-none lg:w-full lg:flex-1">
+    <div className="relative flex min-h-[200px] w-full max-w-[750px] flex-col overflow-hidden rounded-[24px] bg-[#014778] sm:rounded-[28px] aspect-4/3 max-lg:w-full lg:aspect-auto lg:h-full lg:min-h-0 lg:max-w-none lg:w-full lg:flex-1">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-[1] opacity-[0.45]"
@@ -40,13 +44,15 @@ function GlobeCard() {
             'radial-gradient(ellipse 50% 45% at 50% 45%, rgba(255,255,255,0.08) 0%, transparent 65%)',
         }}
       />
-      <img
-        src="/Globe%20Transparent%281%29.png"
-        alt=""
-        className="absolute inset-0 z-[2] size-full object-contain object-center"
-        loading="lazy"
-        decoding="async"
-      />
+      <div className="relative z-[2] flex min-h-0 w-full flex-1 items-center justify-center">
+        <img
+          src="/Globe%20Transparent%281%29.png"
+          alt=""
+          className="h-full w-full max-h-none min-h-0 object-contain object-center scale-[1.08]"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
     </div>
   )
 }
@@ -61,7 +67,7 @@ export default function CommonwealthSection() {
       <div className="relative flex min-h-svh min-w-0 flex-col">
         <div
           aria-hidden
-          className="cwu-watermark-marquee-viewport pointer-events-none absolute left-0 right-0 top-0 z-0 max-h-[40vh] overflow-x-hidden overflow-y-visible pt-8 pb-6 sm:pt-10 sm:pb-8 lg:pt-8 lg:pb-12"
+          className="cwu-watermark-marquee-viewport pointer-events-none absolute left-0 right-0 top-0 z-0 flex h-[322px] flex-col justify-center overflow-x-hidden overflow-y-visible py-6 sm:py-8 lg:py-8"
         >
           <div className="cwu-watermark-marquee-track pl-4 sm:pl-6 lg:pl-10 min-[1800px]:pl-8">
             <span className={watermarkTextClass}>{WATERMARK_PHRASE}</span>
@@ -69,9 +75,9 @@ export default function CommonwealthSection() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto flex w-full max-w-[1685px] min-h-0 flex-1 flex-col px-4 pb-10 pt-40 sm:px-6 sm:pb-12 sm:pt-44 lg:px-10 lg:pb-16 lg:pt-48 xl:pt-52 min-[1800px]:px-8">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1685px] min-h-0 flex-1 flex-col px-4 pb-10 pt-[calc(322px+1.5rem)] sm:px-6 sm:pb-12 lg:px-10 lg:pb-16 min-[1800px]:px-8">
           <div className="grid min-h-0 flex-1 grid-cols-1 content-end items-stretch gap-10 lg:grid-cols-2 lg:content-stretch lg:items-stretch lg:gap-x-0 lg:gap-y-10">
-            <div className="flex w-full min-h-0 flex-col items-start lg:h-full lg:min-h-0 lg:items-stretch lg:pr-8 xl:pr-12">
+            <div className="flex w-full min-h-0 flex-col items-stretch lg:h-full lg:min-h-0 lg:pr-8 xl:pr-12">
               <GlobeCard />
             </div>
 
@@ -91,12 +97,25 @@ export default function CommonwealthSection() {
                 </span>
               </h2>
               <div className="grid w-full min-w-0 grid-cols-1 gap-x-10 gap-y-4 text-left md:grid-cols-[minmax(0,3fr)_minmax(0,2.05fr)] md:gap-x-12 md:gap-y-5 lg:gap-x-16 xl:gap-x-20">
-                <p className="m-0 min-w-0 max-w-none text-left font-['DM_Sans',sans-serif] text-[17px] font-normal leading-[1.45] tracking-normal text-[#777777] sm:text-[18px] md:text-[20px] md:leading-[25.4px]">
-                  Commonwealth Union is an established global network with 12 million readers, a $19 trillion GDP footprint, and an International Advisory Board of presidents, prime ministers, and senior statesmen. The CWU token is created by Commonwealth Union Blockchain Network, an official vertical of Commonwealth Union.
-                </p>
-                <p className="m-0 min-w-0 max-w-none text-left font-['DM_Sans',sans-serif] text-[17px] font-normal leading-[1.45] tracking-normal text-[#777777] sm:text-[18px] md:text-[20px] md:leading-[25.4px]">
-                  represented by His Highness Sheikh Saoud bin Faisal Sultan Alqasimi. It puts the network on-chain, opening up participation and cross-border commerce. Built for people, not politics.
-                </p>
+                <div className="@container min-w-0">
+                  <p className={aboutBodyClass}>
+                    Commonwealth Union is an established global network with 12 million readers, a $19
+                    trillion GDP footprint, and an International Advisory Board of presidents, prime
+                    ministers, and senior statesmen.
+                    <br />
+                    The CWU token is created by Commonwealth Union Blockchain Network, an official
+                    vertical of Commonwealth Union.
+                  </p>
+                </div>
+                <div className="@container min-w-0">
+                  <p className={aboutBodyClass}>
+                    represented by His Highness Sheikh Saoud bin Faisal Sultan Alqasimi.
+                    <br />
+                    It puts the network on-chain, opening up participation and cross-border commerce.
+                    <br />
+                    Built for people, not politics.
+                  </p>
+                </div>
               </div>
               <div className="mt-2 flex w-full max-w-full flex-nowrap items-stretch justify-start gap-2.5">
                 <button

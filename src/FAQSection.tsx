@@ -43,15 +43,15 @@ export default function FAQSection() {
       >
         <div className="mx-auto flex w-full max-w-full min-w-0 shrink-0 flex-col">
           {/*
-            Fluid title: larger cap + divisor on small screens; md+ matches Figma ~64px cap with cqi/17.
+            One line: nowrap + fluid size from container width so the phrase fits without wrapping.
           */}
           <div className={`mx-auto w-full ${CONTENT_MAX} @container`}>
             <h2
               id="faq-heading"
-              className="m-0 w-full text-balance text-left font-[Georgia,serif] text-[min(4.5rem,calc(100cqi/10))] font-normal leading-[1.2] tracking-normal text-[#111111] md:text-[min(4rem,calc(100cqi/17))] md:text-center md:whitespace-nowrap"
+              className="m-0 w-full whitespace-nowrap text-left font-[Georgia,serif] text-[clamp(1.5rem,calc(0.95rem+100cqi/15.5),6rem)] font-normal leading-[1.12] tracking-normal text-[#111111] md:text-center md:-translate-x-[calc(0.75rem_*_1.05)] lg:-translate-x-[calc(1.05rem_*_1.05)]"
             >
-              <span className="block md:inline">Frequently asked </span>
-              <span className="block md:inline">questions</span>
+              <span className="inline">Frequently asked </span>
+              <span className="inline">questions</span>
             </h2>
           </div>
 
@@ -78,7 +78,7 @@ export default function FAQSection() {
                         aria-hidden
                       >
                         <Plus
-                          className={`h-[14.14px] w-[14.94px] shrink-0 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:duration-200 ${isOpen ? 'rotate-45' : ''}`}
+                          className={`size-[17px] shrink-0 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:duration-200 sm:size-[21px] ${isOpen ? 'rotate-45' : ''}`}
                           strokeWidth={2}
                           absoluteStrokeWidth
                         />

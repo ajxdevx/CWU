@@ -3,7 +3,17 @@ const TEAL = '#3CDAC4'
 const NETWORK_HEADLINE_DARK = '#0D4A9C'
 const NETWORK_HEADLINE_LIGHT = '#227BB3'
 
-const COLUMNS = [
+type NetworkColumn = {
+  readonly n: string
+  readonly title: string
+  readonly body: string
+  readonly bodyLine2?: string
+  readonly bodyLine3?: string
+  readonly bg: string
+  readonly iconSrc: string
+}
+
+const COLUMNS: readonly NetworkColumn[] = [
   {
     n: '01',
     title: 'Media',
@@ -17,7 +27,7 @@ const COLUMNS = [
     body: 'Connecting 150M SMEs and 100M+ diaspora professionals into',
     bodyLine2: 'one accessible ecosystem for cross-border',
     bodyLine3: 'commerce.',
-    bg: 'bg-[#0F3554]',
+    bg: 'bg-[#014778]',
     iconSrc: '/Frame%2010.svg',
   },
   {
@@ -25,10 +35,10 @@ const COLUMNS = [
     title: 'Infrastructure',
     body: 'The vision extends into financial tools, settlement systems, and cross-border connectivity',
     bodyLine2: 'for a $19T economy.',
-    bg: 'bg-[#1A5588]',
+    bg: 'bg-[#2073A8]',
     iconSrc: '/Frame%2015.svg',
   },
-] as const
+] as const satisfies readonly NetworkColumn[]
 
 export default function NetworkSection() {
   return (
@@ -48,28 +58,21 @@ export default function NetworkSection() {
                 id="network-section-title"
                 className="m-0 w-full text-center font-[Georgia,serif] text-[clamp(1.75rem,4.5vw+0.5rem,4rem)] font-normal leading-[1.1] tracking-[0] min-[900px]:text-left min-[900px]:text-[3.25rem] lg:text-[64px]"
               >
-                <span
-                  className="block whitespace-nowrap"
-                  style={{ color: NETWORK_HEADLINE_DARK }}
-                >
-                  A digital layer for
+                <span className="block whitespace-nowrap">
+                  <span style={{ color: NETWORK_HEADLINE_DARK }}>A digital layer for </span>
+                  <span style={{ color: NETWORK_HEADLINE_LIGHT }}>real-</span>
                 </span>
                 <span
                   className="block whitespace-nowrap"
                   style={{ color: NETWORK_HEADLINE_LIGHT }}
                 >
-                  real-world opportunity.
+                  world opportunity.
                 </span>
               </h2>
-              <p className="m-0 w-full max-w-none text-center font-['DM_Sans',sans-serif] text-[clamp(1.0625rem,1.05vw+0.9rem,1.5rem)] font-normal leading-[1.1] tracking-[0] text-[#6B7280] min-[900px]:text-left lg:text-[21px] lg:leading-[1.12] min-[1536px]:text-2xl min-[1536px]:leading-[26.4px]">
-                <span className="block text-balance">
-                  CWU connects a globally distributed community across 56 nations into
-                </span>
-                <span className="block text-balance">a single, accessible system.</span>
-                <span className="mt-1 block min-[900px]:mt-1.5">
-                  <span className="block whitespace-nowrap">A digital layer for</span>
-                  <span className="block whitespace-nowrap">real-world opportunity.</span>
-                </span>
+              <p className="m-0 w-full max-w-none text-center font-['DM_Sans',sans-serif] text-[clamp(1.0625rem,1.05vw+0.9rem,1.5rem)] font-normal leading-[1.1] tracking-[0] text-balance text-[#6B7280] min-[900px]:text-left min-[900px]:text-pretty lg:text-[21px] lg:leading-[1.12] min-[1536px]:text-2xl min-[1536px]:leading-[26.4px]">
+                CWU connects a globally distributed community across 56 nations into{' '}
+                <br className="hidden min-[900px]:block" aria-hidden />
+                a single, accessible system. A digital layer for real-world opportunity.
               </p>
             </div>
           </div>

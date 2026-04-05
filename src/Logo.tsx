@@ -1,3 +1,6 @@
+const logoLineClass =
+  "text-[14px] font-normal leading-[118%] text-[#FFFFFF] sm:text-[16px] md:text-[18px] min-[1800px]:text-[19.73px] min-[1800px]:leading-[100%]"
+
 export type LogoProps = {
   line1: string
   line2: string
@@ -20,12 +23,8 @@ export default function Logo({ line1, line2 }: LogoProps) {
         className="flex min-h-0 min-w-0 flex-col justify-center gap-0.5 rounded-none py-0 text-left sm:gap-1 min-[1800px]:max-w-[688px] min-[1800px]:shrink-0 min-[1800px]:gap-0"
         style={{ fontFamily: 'Georgia, serif' }}
       >
-        <span className="text-[14px] font-normal leading-[118%] text-[#FFFFFF] sm:text-[16px] md:text-[18px] min-[1800px]:text-[19.73px] min-[1800px]:leading-[100%]">
-          {line1}
-        </span>
-        <span className="text-[14px] font-normal leading-[118%] text-[#FFFFFF] sm:text-[16px] md:text-[18px] min-[1800px]:text-[19.73px] min-[1800px]:leading-[100%]">
-          {line2}
-        </span>
+        <span className={logoLineClass}>{line1}</span>
+        <span className={logoLineClass}>{line2}</span>
       </div>
     </div>
   )
