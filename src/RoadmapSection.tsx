@@ -72,12 +72,11 @@ export default function RoadmapSection() {
             id="roadmap-section-title"
             className="mt-3 w-full max-w-[664px] text-left font-[Georgia,serif] text-[clamp(1.875rem,4.25vw+0.5rem,4rem)] font-normal leading-[1.2] tracking-normal sm:mt-4 lg:mt-5 lg:text-[64px]"
           >
-            <span className="block whitespace-nowrap">
-              <span style={{ color: ROADMAP_HEADLINE_FIRST }}>A digital layer for </span>
-              <span style={{ color: ROADMAP_HEADLINE_SECOND }}>real-</span>
-            </span>
             <span className="block whitespace-nowrap" style={{ color: ROADMAP_HEADLINE_SECOND }}>
-              world opportunity.
+              A digital layer for{' '}
+            </span>
+            <span className="block whitespace-nowrap" style={{ color: ROADMAP_HEADLINE_FIRST }}>
+              real-world opportunity.
             </span>
           </h2>
         </div>
