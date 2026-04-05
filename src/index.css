@@ -137,12 +137,25 @@ body::-webkit-scrollbar {
 }
 
 /*
- * Hero contract row: small upward nudge on tablet only (800–1274px). No mobile
- * transform — keeps “Contract to be announced at launch” in the default layout.
+ * Hero contract block: offset on the order-3 wrapper only. `transform` on inner
+ * flex rows was ignored — Tailwind v4 can set `translate:` on flex utilities.
+ * `position: relative; top` avoids that and reliably moves just this block.
  */
-@media (min-width: 800px) and (max-width: 1274px) {
-  .hero-section-scroll .hero-contract-row-shift {
-    transform: translateY(calc(-0.5rem * 0.925));
+@media (max-width: 800px) {
+  .hero-section-scroll .hero-contract-mobile-offset {
+    position: relative;
+    top: 4.6rem;
+  }
+
+  section.hero-section-scroll {
+    padding-bottom: max(5.75rem, calc(1rem + env(safe-area-inset-bottom, 0px))) !important;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1274px) {
+  .hero-section-scroll .hero-contract-mobile-offset {
+    position: relative;
+    top: calc(-0.5rem * 0.925);
   }
 }
 
@@ -309,7 +322,8 @@ body::-webkit-scrollbar {
   animation-delay: 0.28s;
 }
 
-@media (max-width: 799px) {
+/* ≤800px: small fold only (801+ uses tablet fold — avoids overlap at 800px). */
+@media (max-width: 800px) {
   .hero-fold-graphic .hero-intro-cover {
     animation-name: hero-fold-cover-in-sm;
     animation-duration: 0.85s;
@@ -320,12 +334,12 @@ body::-webkit-scrollbar {
   }
 
   .hero-fold-graphic-inner {
-    transform: translateX(min(-2.5rem, -15vw)) translateY(min(7.45vh, 3.05rem));
+    transform: translateX(min(-2.5rem, -15vw)) translateY(min(2.75vh, 1.2rem));
     transform-origin: 76% 64%;
   }
 }
 
-@media (min-width: 800px) and (max-width: 1274px) {
+@media (min-width: 801px) and (max-width: 1274px) {
   .hero-fold-graphic .hero-intro-cover {
     animation-name: hero-fold-cover-in-md;
     animation-duration: 0.85s;
@@ -405,13 +419,13 @@ body::-webkit-scrollbar {
     transform: none !important;
   }
 
-  @media (max-width: 799px) {
+  @media (max-width: 800px) {
     .hero-fold-graphic .hero-intro-cover {
       transform: scale(1.58) !important;
     }
   }
 
-  @media (min-width: 800px) and (max-width: 1274px) {
+  @media (min-width: 801px) and (max-width: 1274px) {
     .hero-fold-graphic .hero-intro-cover {
       transform: scale(1.36) !important;
     }

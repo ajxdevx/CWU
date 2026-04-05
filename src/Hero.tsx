@@ -19,7 +19,7 @@ export default function Hero() {
             <HeroHeadline />
             <HeroSubhead />
           </div>
-          <div className="mt-0 flex w-full max-w-full shrink-0 flex-row flex-nowrap items-stretch justify-center gap-2 self-stretch min-w-0 sm:mt-1 sm:gap-3 sm:max-[1274px]:w-full sm:max-[1274px]:max-w-[min(36rem,calc(100%-0.5rem))] sm:max-[1274px]:self-start sm:max-[1274px]:flex-col sm:max-[1274px]:flex-nowrap md:mt-2 md:gap-4 min-[1275px]:hidden">
+          <div className="mt-0 flex w-full max-w-full shrink-0 flex-row flex-nowrap items-stretch justify-center gap-2 self-stretch min-w-0 min-[801px]:max-[1274px]:mt-1 min-[801px]:max-[1274px]:gap-3 min-[801px]:max-[1274px]:w-full min-[801px]:max-[1274px]:max-w-[min(36rem,calc(100%-0.5rem))] min-[801px]:max-[1274px]:self-start min-[801px]:max-[1274px]:flex-col min-[801px]:max-[1274px]:flex-nowrap md:mt-2 md:gap-4 min-[1275px]:hidden">
             <HeaderActionButton compactPair />
             <LearnMoreButton compactPair />
           </div>
@@ -36,12 +36,12 @@ export default function Hero() {
         </div>
 
         <div
-          className="pointer-events-none order-2 block min-h-[min(18svh,160px)] w-full shrink-0 max-[799px]:min-h-[min(15svh,140px)] sm:max-[1274px]:min-h-[min(22svh,200px)] min-[1275px]:hidden"
+          className="pointer-events-none order-2 block min-h-[min(18svh,160px)] w-full shrink-0 max-[800px]:min-h-[min(15svh,140px)] min-[801px]:max-[1274px]:min-h-[min(22svh,200px)] min-[1275px]:hidden"
           aria-hidden
         />
 
-        <div className="order-3 flex w-full min-w-0 shrink-0 flex-col items-stretch max-[1274px]:mt-auto max-[1274px]:pb-4 max-[1274px]:pt-0 sm:max-[1274px]:pb-5 min-[1275px]:hidden">
-          <div className="hero-contract-row-shift flex w-full max-w-full min-w-0 justify-center px-2 sm:px-3">
+        <div className="hero-contract-mobile-offset order-3 flex w-full min-w-0 shrink-0 flex-col items-stretch max-[1274px]:mt-auto max-[1274px]:pb-4 max-[1274px]:pt-0 min-[801px]:max-[1274px]:pb-5 min-[1275px]:hidden">
+          <div className="flex w-full max-w-full min-w-0 justify-center px-2 sm:px-3">
             <ContractAnnouncementBar />
           </div>
         </div>
