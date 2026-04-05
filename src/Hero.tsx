@@ -19,7 +19,7 @@ export default function Hero() {
             <HeroHeadline />
             <HeroSubhead />
           </div>
-          <div className="mt-10 flex w-full min-w-0 shrink-0 flex-wrap items-center justify-center gap-3 sm:mt-12 sm:gap-4 min-[1260px]:mt-16 min-[1260px]:justify-start">
+          <div className="mt-5 flex w-full min-w-0 shrink-0 flex-nowrap items-center justify-center gap-2 sm:mt-7 sm:gap-3 md:mt-8 md:gap-4 min-[1260px]:mt-16 min-[1260px]:justify-start">
             <HeaderActionButton />
             <LearnMoreButton />
           </div>

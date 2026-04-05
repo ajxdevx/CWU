@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+:root {
+  --hero-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --cwu-page-gradient: linear-gradient(
+    180deg,
+    #041825 2%,
+    #0f354d 24%,
+    #227bb3 100%
+  );
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
@@ -12,9 +22,16 @@
 
 html {
   height: 100%;
+  color-scheme: dark;
   overflow-x: clip;
   overflow-y: hidden;
   max-width: 100%;
+  /* Same as body so iOS overscroll / rubber-band doesn’t flash a different color. */
+  background-color: #041825;
+  background-image: var(--cwu-page-gradient);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-height: 100%;
 }
 
 body {
@@ -24,12 +41,10 @@ body {
   overflow-x: clip;
   overflow-y: hidden;
   max-width: 100%;
-  background: linear-gradient(
-    180deg,
-    #041825 2%,
-    #0F354D 24%,
-    #227BB3 100%
-  );
+  background-color: #041825;
+  background-image: var(--cwu-page-gradient);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 #root {
@@ -106,8 +121,13 @@ body::-webkit-scrollbar {
 }
 
 /* --- Hero entrance (opacity + transform only; final keyframes match static design) --- */
-:root {
-  --hero-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+/* Header + fold SVG: one continuous backdrop (fixes uneven tints on mobile). */
+.cwu-hero-fold-stack {
+  background-color: #041825;
+  background-image: var(--cwu-page-gradient);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 @keyframes hero-header-in {

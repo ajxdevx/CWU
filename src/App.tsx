@@ -47,7 +47,7 @@ function App() {
         Header + hero stay outside SectionReveal so the fold is never opacity-0 / IO-gated:
         header and hero entrance animations stay in hero CSS only.
       */}
-      <div className="relative flex w-full min-w-0 shrink-0 flex-col overflow-x-clip overflow-y-visible">
+      <div className="cwu-hero-fold-stack relative flex w-full min-w-0 shrink-0 flex-col overflow-x-clip overflow-y-visible">
         <HeroFoldBackground />
         <div className="relative z-10 flex min-w-0 flex-col">
           <Header />

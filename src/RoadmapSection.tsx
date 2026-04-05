@@ -33,11 +33,15 @@ const CARDS = [
   },
 ] as const
 
-/** Tag chips: left-aligned row (spacing from title/desc via parent gap) */
-const TAG_ROW =
+/** Tag chips: first cards stay one row on small screens; last card may wrap. */
+const TAG_ROW_WRAP =
   'mt-3 flex shrink-0 flex-wrap items-center justify-start gap-[10px] sm:mt-4'
+const TAG_ROW_SINGLE =
+  'mt-3 flex shrink-0 flex-nowrap items-center justify-start gap-2 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] sm:mt-4 sm:gap-[10px] [&::-webkit-scrollbar]:hidden'
 const TAG_BOX =
   "box-border inline-flex h-fit w-fit shrink-0 items-center justify-center rounded-lg bg-[#F0EEEA]/16 px-3 py-2 font-['DM_Sans',sans-serif] text-[16px] font-medium leading-[1.2] tracking-normal text-[#F7F7F7]"
+const TAG_BOX_COMPACT =
+  "box-border inline-flex h-fit w-fit shrink-0 items-center justify-center whitespace-nowrap rounded-lg bg-[#F0EEEA]/16 px-2 py-1.5 font-['DM_Sans',sans-serif] text-[clamp(12px,2.85vw,16px)] font-medium leading-[1.2] tracking-normal text-[#F7F7F7] sm:px-3 sm:py-2"
 
 /** Badge label (Figma text): DM Sans bold 16px, leading 120%, tracking 1.2px, #1FB893 */
 const BADGE_TEXT =
@@ -68,55 +72,55 @@ export default function RoadmapSection() {
             id="roadmap-section-title"
             className="mt-3 w-full max-w-[664px] text-left font-[Georgia,serif] text-[clamp(1.875rem,4.25vw+0.5rem,4rem)] font-normal leading-[1.2] tracking-normal sm:mt-4 lg:mt-5 lg:text-[64px]"
           >
-            <span className="block text-balance" style={{ color: ROADMAP_HEADLINE_FIRST }}>
+            <span className="block whitespace-nowrap" style={{ color: ROADMAP_HEADLINE_FIRST }}>
               A digital layer for
             </span>
-            <span
-              className="block max-md:text-balance md:whitespace-nowrap"
-              style={{ color: ROADMAP_HEADLINE_SECOND }}
-            >
+            <span className="block whitespace-nowrap" style={{ color: ROADMAP_HEADLINE_SECOND }}>
               real-world opportunity.
             </span>
           </h2>
         </div>
 
         <div className="mt-6 flex min-h-0 flex-1 flex-col items-center gap-5 sm:mt-8 md:flex-row md:flex-nowrap md:justify-center lg:mt-10">
-          {CARDS.map(({ badge, badgeTone, title, body, tags, bg }) => (
-            <div
-              key={title}
-              className={`${bg} box-border flex min-h-[280px] w-full max-w-[610px] shrink-0 flex-col overflow-x-hidden overflow-y-auto rounded-2xl md:h-[322px] md:min-h-[322px] md:w-[610px] md:max-w-none`}
-            >
-              <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-3 px-6 py-4 sm:px-7 sm:py-5">
-                <div className="flex shrink-0 items-start justify-between gap-2 pt-1 sm:pt-2">
-                  <span
-                    className={`box-border inline-flex shrink-0 items-center justify-center gap-2.5 ${badgeClass(badgeTone)}`}
-                  >
-                    {badge}
-                  </span>
-                  <ArrowRight
-                    className="size-[1.35rem] shrink-0 origin-center translate-y-1 rotate-90 text-white opacity-90 sm:size-6 md:translate-y-0 md:rotate-0"
-                    strokeWidth={2.2}
-                    aria-hidden
-                  />
-                </div>
-                <div className="flex min-h-0 min-w-0 flex-1 flex-col justify-center gap-4 text-left sm:gap-5">
-                  <h3 className="m-0 w-full min-w-0 text-balance font-[Georgia,serif] text-[clamp(1.5rem,4.25vw,2rem)] font-normal leading-[1.2] tracking-normal text-white md:text-[32px]">
-                    {title}
-                  </h3>
-                  <p className="m-0 min-h-0 w-full min-w-0 font-['DM_Sans',sans-serif] text-[clamp(1.0625rem,3.4vw,1.3125rem)] font-normal leading-[1.36] tracking-normal text-white/70 md:text-[20px] md:leading-[23.9px]">
-                    {body}
-                  </p>
-                  <div className={TAG_ROW}>
-                    {tags.map((t) => (
-                      <span key={t} className={TAG_BOX}>
-                        {t}
-                      </span>
-                    ))}
+          {CARDS.map(({ badge, badgeTone, title, body, tags, bg }, cardIndex) => {
+            const isLastCard = cardIndex === CARDS.length - 1
+            return (
+              <div
+                key={title}
+                className={`${bg} box-border flex min-h-[280px] w-full max-w-[610px] shrink-0 flex-col overflow-x-hidden overflow-y-auto rounded-2xl md:h-[322px] md:min-h-[322px] md:w-[610px] md:max-w-none`}
+              >
+                <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-3 px-6 py-4 sm:px-7 sm:py-5">
+                  <div className="flex shrink-0 items-start justify-between gap-2 pt-1 sm:pt-2">
+                    <span
+                      className={`box-border inline-flex shrink-0 items-center justify-center gap-2.5 ${badgeClass(badgeTone)}`}
+                    >
+                      {badge}
+                    </span>
+                    <ArrowRight
+                      className="size-[1.35rem] shrink-0 origin-center translate-y-1 rotate-90 text-white opacity-90 sm:size-6 md:translate-y-0 md:rotate-0"
+                      strokeWidth={2.2}
+                      aria-hidden
+                    />
+                  </div>
+                  <div className="flex min-h-0 min-w-0 flex-1 flex-col justify-center gap-4 text-left sm:gap-5">
+                    <h3 className="m-0 w-full min-w-0 text-balance font-[Georgia,serif] text-[clamp(1.5rem,4.25vw,2rem)] font-normal leading-[1.2] tracking-normal text-white md:text-[32px]">
+                      {title}
+                    </h3>
+                    <p className="m-0 min-h-0 w-full min-w-0 font-['DM_Sans',sans-serif] text-[clamp(1.0625rem,3.4vw,1.3125rem)] font-normal leading-[1.36] tracking-normal text-white/70 md:text-[20px] md:leading-[23.9px]">
+                      {body}
+                    </p>
+                    <div className={isLastCard ? TAG_ROW_WRAP : TAG_ROW_SINGLE}>
+                      {tags.map((t) => (
+                        <span key={t} className={isLastCard ? TAG_BOX : TAG_BOX_COMPACT}>
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

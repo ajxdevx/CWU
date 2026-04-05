@@ -45,10 +45,16 @@ export default function NetworkSection() {
                 id="network-section-title"
                 className="m-0 w-full text-center font-[Georgia,serif] text-[clamp(1.75rem,4.5vw+0.5rem,4rem)] font-normal leading-[1.1] tracking-[0] min-[900px]:text-left min-[900px]:text-[3.25rem] lg:text-[64px]"
               >
-                <span className="block text-balance" style={{ color: NETWORK_HEADLINE_DARK }}>
+                <span
+                  className="block whitespace-nowrap"
+                  style={{ color: NETWORK_HEADLINE_DARK }}
+                >
                   A digital layer for
                 </span>
-                <span className="block text-balance" style={{ color: NETWORK_HEADLINE_LIGHT }}>
+                <span
+                  className="block whitespace-nowrap"
+                  style={{ color: NETWORK_HEADLINE_LIGHT }}
+                >
                   real-world opportunity.
                 </span>
               </h2>
@@ -56,8 +62,10 @@ export default function NetworkSection() {
                 <span className="block text-balance">
                   CWU connects a globally distributed community across 56 nations into
                 </span>
-                <span className="block text-balance">
-                  a single, accessible system. A digital layer for real-world opportunity.
+                <span className="block text-balance">a single, accessible system.</span>
+                <span className="mt-1 block min-[900px]:mt-1.5">
+                  <span className="block whitespace-nowrap">A digital layer for</span>
+                  <span className="block whitespace-nowrap">real-world opportunity.</span>
                 </span>
               </p>
             </div>
