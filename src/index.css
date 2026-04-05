@@ -136,6 +136,16 @@ body::-webkit-scrollbar {
   background-size: 100% 100%;
 }
 
+/*
+ * Hero contract row: small upward nudge on tablet only (800–1274px). No mobile
+ * transform — keeps “Contract to be announced at launch” in the default layout.
+ */
+@media (min-width: 800px) and (max-width: 1274px) {
+  .hero-section-scroll .hero-contract-row-shift {
+    transform: translateY(calc(-0.5rem * 0.925));
+  }
+}
+
 @keyframes hero-header-in {
   from {
     transform: translateY(6px);
@@ -310,7 +320,7 @@ body::-webkit-scrollbar {
   }
 
   .hero-fold-graphic-inner {
-    transform: translateX(min(-2.5rem, -15vw)) translateY(min(10.2vh, 4.1rem));
+    transform: translateX(min(-2.5rem, -15vw)) translateY(min(7.45vh, 3.05rem));
     transform-origin: 76% 64%;
   }
 }

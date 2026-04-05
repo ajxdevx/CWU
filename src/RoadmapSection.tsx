@@ -87,13 +87,13 @@ export default function RoadmapSection() {
           </h2>
         </div>
 
-        <div className="mt-6 grid min-h-0 w-full min-w-0 flex-1 grid-cols-1 justify-items-center gap-5 sm:mt-8 min-[1280px]:mt-10 min-[1280px]:grid-cols-2 min-[1680px]:grid-cols-3">
+        <div className="mt-6 grid min-h-0 w-full min-w-0 flex-1 grid-cols-1 justify-items-center gap-6 sm:mt-8 min-[1280px]:mt-10 min-[1280px]:grid-cols-2 min-[1680px]:grid-cols-3 min-[1680px]:gap-x-8 min-[1680px]:gap-y-6">
           {CARDS.map(({ badge, badgeTone, title, body, tags, bg }, cardIndex) => {
             const isLastCard = cardIndex === CARDS.length - 1
             return (
               <div
                 key={title}
-                className={`${bg} box-border flex min-h-[280px] w-full min-w-0 max-w-[610px] shrink-0 flex-col overflow-x-hidden overflow-y-auto rounded-2xl min-[1280px]:h-[322px] min-[1280px]:min-h-[322px] min-[1280px]:w-[610px] min-[1280px]:max-w-none`}
+                className={`${bg} box-border flex min-h-[280px] w-full min-w-0 max-w-[610px] shrink-0 flex-col overflow-x-hidden overflow-y-auto rounded-2xl min-[1280px]:h-[322px] min-[1280px]:min-h-[322px]`}
               >
                 <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-3 px-6 py-4 sm:px-7 sm:py-5">
                   <div className="flex shrink-0 items-start justify-between gap-2 pt-1 sm:pt-2">

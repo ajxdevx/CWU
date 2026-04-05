@@ -8,7 +8,7 @@ export default function HeroFoldBackground() {
           alt=""
           decoding="async"
           fetchPriority="high"
-          className="hero-intro-cover block h-full w-full max-h-full object-contain max-[799px]:object-[0%_68%] max-[1274px]:max-h-full max-[1274px]:w-full sm:max-[1274px]:object-[50%_60%] min-[1275px]:max-h-none min-[1275px]:min-h-full min-[1275px]:w-full min-[1275px]:object-cover min-[1275px]:object-right"
+          className="hero-intro-cover block h-full w-full max-h-full object-contain max-[799px]:object-[0%_74%] max-[1274px]:max-h-full max-[1274px]:w-full sm:max-[1274px]:object-[50%_60%] min-[1275px]:max-h-none min-[1275px]:min-h-full min-[1275px]:w-full min-[1275px]:object-cover min-[1275px]:object-right"
         />
       </div>
     </div>

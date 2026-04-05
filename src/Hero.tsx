@@ -41,7 +41,7 @@ export default function Hero() {
         />
 
         <div className="order-3 flex w-full min-w-0 shrink-0 flex-col items-stretch max-[1274px]:mt-auto max-[1274px]:pb-4 max-[1274px]:pt-0 sm:max-[1274px]:pb-5 min-[1275px]:hidden">
-          <div className="flex w-full max-w-full min-w-0 justify-center px-2 sm:px-3 max-[1274px]:-translate-y-[calc(0.5rem_*_0.925)]">
+          <div className="hero-contract-row-shift flex w-full max-w-full min-w-0 justify-center px-2 sm:px-3">
             <ContractAnnouncementBar />
           </div>
         </div>
