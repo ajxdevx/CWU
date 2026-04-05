@@ -98,13 +98,13 @@ export default function HowToBuySection() {
             ))}
           </ol>
 
-          <footer className="mt-auto shrink-0 pt-5 pb-6 sm:pt-10 sm:pb-12 lg:pb-0">
-            <div className="flex flex-col items-start gap-2 sm:gap-3">
+          <footer className="@container mt-auto w-full min-w-0 shrink-0 pt-5 pb-6 sm:pt-10 sm:pb-12 lg:pb-0">
+            <div className="flex w-full min-w-0 flex-col items-start gap-2 sm:gap-3">
               <p className="m-0 shrink-0 text-left font-['DM_Sans',sans-serif] text-xl font-bold leading-[1.2] tracking-[1.5px] text-[#999999]">
                 Contract Address
               </p>
-              <div className="@container box-border flex w-full max-w-full min-w-0 items-center gap-[10px] rounded-[10px] border border-[#DDDDDD] bg-[#F7F5F0] px-5 py-3 sm:w-fit sm:max-w-none">
-                <div className="min-w-0 flex-1 sm:flex-none">
+              <div className="box-border flex w-fit max-w-full min-w-0 items-center gap-[10px] rounded-[10px] border border-[#DDDDDD] bg-[#F7F5F0] px-5 py-3">
+                <div className="min-w-0">
                   <span className="inline-block max-w-full whitespace-nowrap font-['DM_Sans',sans-serif] font-normal leading-[1.2] tracking-normal text-[#444444] max-sm:text-[clamp(10px,calc(100cqi/19.5),1.25rem)] sm:text-xl">
                     {PLACEHOLDER_CONTRACT}
                   </span>
