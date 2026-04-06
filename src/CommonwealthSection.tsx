@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { ArrowRight } from 'lucide-react'
 
 const STATS = [
@@ -22,8 +23,65 @@ const aboutBodyClass =
   "m-0 min-w-0 max-w-none text-center min-[801px]:text-left font-['DM_Sans',sans-serif] font-normal tracking-normal text-[#777777] max-[800px]:text-[clamp(12px,1.55dvh+0.28rem,15px)] max-[800px]:leading-[1.36] min-[801px]:[font-size:clamp(0.8125rem,calc(0.55rem+2.1cqi),1.3125rem)] min-[801px]:leading-[1.45]"
 
 function GlobeCard() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  /**
+   * Smooth looped playback only — no `#root` scroll listener.
+   * (Scroll-based scrub ran on every page scroll while the globe was visible, so it
+   * constantly paused/seeked/resumed and felt broken + laggy.)
+   */
+  useEffect(() => {
+    const container = containerRef.current
+    const video = videoRef.current
+    if (!container || !video) return
+
+    const tryPlay = () => {
+      video.playbackRate = 1
+      void video.play().catch(() => {
+        /* autoplay policy or not ready */
+      })
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0]
+        if (!entry) return
+        if (entry.isIntersecting) {
+          tryPlay()
+        } else {
+          video.pause()
+        }
+      },
+      /** `0` = fire as soon as any pixel shows — avoids missing 20% threshold on small layouts */
+      { root: null, threshold: 0, rootMargin: '0px' },
+    )
+
+    observer.observe(container)
+
+    const onVisibility = () => {
+      if (document.hidden) {
+        video.pause()
+        return
+      }
+      const rect = container.getBoundingClientRect()
+      const vh = window.innerHeight || document.documentElement.clientHeight
+      const intersects = rect.top < vh && rect.bottom > 0 && rect.width > 0 && rect.height > 0
+      if (intersects) tryPlay()
+    }
+    document.addEventListener('visibilitychange', onVisibility)
+
+    return () => {
+      observer.disconnect()
+      document.removeEventListener('visibilitychange', onVisibility)
+    }
+  }, [])
+
   return (
-    <div className="relative flex min-h-[200px] w-full max-w-[750px] flex-col overflow-hidden rounded-[24px] bg-[#014778] sm:rounded-[28px] aspect-4/3 max-lg:w-full lg:aspect-auto lg:h-full lg:min-h-0 lg:max-w-[min(100%,720px)] lg:w-full lg:flex-1">
+    <div
+      ref={containerRef}
+      className="relative flex min-h-[200px] w-full max-w-[750px] flex-col overflow-hidden rounded-[24px] bg-[#014778] sm:rounded-[28px] aspect-4/3 max-lg:w-full lg:aspect-auto lg:h-full lg:min-h-0 lg:max-w-[min(100%,720px)] lg:w-full lg:flex-1"
+    >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-[1] opacity-[0.45]"
@@ -45,13 +103,17 @@ function GlobeCard() {
         }}
       />
       <div className="relative z-[2] flex min-h-0 w-full flex-1 items-center justify-center">
-        <img
-          src="/Globe%20Transparent%281%29.png"
-          alt=""
-          className="h-full w-full max-h-none min-h-0 object-contain object-center scale-[1.08]"
-          loading="lazy"
-          decoding="async"
-        />
+        <video
+          ref={videoRef}
+          aria-hidden
+          className="cwu-tricolor-dither h-full w-full max-h-none min-h-0 object-contain object-center scale-[1.08]"
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/Globe%2002.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
   )

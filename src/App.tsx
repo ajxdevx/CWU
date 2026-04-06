@@ -12,6 +12,7 @@ import JoinCommunitySection from './JoinCommunitySection'
 import RoadmapSection from './RoadmapSection'
 import SectionReveal from './SectionReveal'
 import SeoFaqJsonLd from './SeoFaqJsonLd'
+import GlobeTricolorDitherDefs from './GlobeTricolorDitherDefs'
 
 function App() {
   useLayoutEffect(() => {
@@ -43,6 +44,8 @@ function App() {
 
   return (
     <div className="app-root relative flex min-h-min w-full min-w-0 max-w-full flex-col">
+      {/* SVG filter defs for Commonwealth globe video (see .cwu-tricolor-dither). */}
+      <GlobeTricolorDitherDefs />
       {/*
         Header + hero stay outside SectionReveal so the fold is never opacity-0 / IO-gated:
         header and hero entrance animations stay in hero CSS only.
