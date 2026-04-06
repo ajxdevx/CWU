@@ -6,9 +6,8 @@ import '@fontsource/dm-sans/700.css'
 import '@fontsource/noto-serif/latin-400.css'
 import '@fontsource/noto-serif/latin-ext-400.css'
 import './index.css'
-import App from './App.tsx'
+import App from '@/app/App.tsx'
 
-/** #root is the scroll container; keep reloads at the top unless the URL has a hash target. */
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual'
 }

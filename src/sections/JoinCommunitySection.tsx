@@ -1,0 +1,49 @@
+import { TELEGRAM_ICON_SRC, TELEGRAM_URL, X_ICON_SRC, X_URL } from '@/content/socialAssets'
+
+const LINKS = [
+  { href: TELEGRAM_URL, label: 'Telegram', imgSrc: TELEGRAM_ICON_SRC },
+  { href: X_URL, label: 'Twitter / X', imgSrc: X_ICON_SRC },
+] as const
+
+export default function JoinCommunitySection() {
+  return (
+    <section
+      className="box-border flex w-full min-w-0 shrink-0 flex-col items-center justify-center overflow-x-clip bg-[#F7F5F0] py-0 max-[799px]:min-h-[min(580px,100svh)] sm:min-h-[580px]"
+      aria-labelledby="join-community-heading"
+    >
+      <div className="mx-auto box-border flex w-full min-w-0 max-w-[613px] flex-col items-center self-center ps-[max(1.5rem,env(safe-area-inset-left,0px))] pe-[max(1.5rem,env(safe-area-inset-right,0px))] py-12 text-center @container sm:px-8 sm:py-14">
+        <h2
+          id="join-community-heading"
+          className="m-0 mx-auto flex w-fit max-w-full flex-col items-center text-center font-cwu-serif text-[min(7.5rem,calc(100cqi/5.1))] font-normal leading-[0.9] tracking-normal text-[#111111]"
+        >
+          <span className="block text-center">Join the</span>
+          <span className="block text-center">community</span>
+        </h2>
+        <p className="mt-6 w-full text-center text-balance font-['DM_Sans',sans-serif] text-[17px] font-normal leading-[1.35] tracking-normal text-[#777777] sm:mt-8 sm:text-[20px] md:mt-10 md:text-[24px]">
+          Stay connected for the latest updates, announcements, and launch details.
+        </p>
+        <div className="mt-9 flex w-full flex-wrap items-center justify-center gap-2.5 sm:mt-10">
+          {LINKS.map(({ href, label, imgSrc }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="box-border inline-flex min-h-[44px] shrink-0 items-center gap-2.5 rounded-xl border border-[#DDDDDD] bg-white px-3.5 py-2.5 font-['DM_Sans',sans-serif] text-[16px] font-medium leading-[1.2] tracking-normal text-[#111111] transition-[border-color,transform] hover:border-[#CCCCCC] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2073A8] sm:px-4 sm:text-[20px]"
+            >
+              <img
+                src={imgSrc}
+                alt=""
+                width={22}
+                height={22}
+                decoding="async"
+                className="size-[22px] shrink-0 brightness-0"
+              />
+              {label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

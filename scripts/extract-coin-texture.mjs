@@ -3,8 +3,8 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const svgPath = path.join(__dirname, '..', 'public', 'coin.svg')
-const pngPath = path.join(__dirname, '..', 'public', 'coin-texture.png')
+const svgPath = path.join(__dirname, '..', 'public', 'assets', 'images', 'coin.svg')
+const pngPath = path.join(__dirname, '..', 'public', 'assets', 'images', 'coin-texture.png')
 
 const svg = fs.readFileSync(svgPath, 'utf8')
 const re = /xlink:href="(data:image\/png;base64,[^"]+)"/
@@ -17,7 +17,7 @@ const b64 = m[1].replace(/^data:image\/png;base64,/, '')
 const buf = Buffer.from(b64, 'base64')
 fs.writeFileSync(pngPath, buf)
 
-const newSvg = svg.replace(re, 'xlink:href="/coin-texture.png"')
+const newSvg = svg.replace(re, 'xlink:href="/assets/images/coin-texture.png"')
 fs.writeFileSync(svgPath, newSvg)
 
 console.log('Wrote', pngPath, buf.length, 'bytes')
