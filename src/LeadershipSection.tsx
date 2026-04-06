@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useRef } from 'react'
+import DitherPortraitImage from './DitherPortraitImage'
 
 const cardImage = (filename: string) => `/cardimages/${encodeURIComponent(filename)}`
 
@@ -189,7 +190,7 @@ export default function LeadershipSection() {
                 Commonwealth Union&apos;s International Advisory Board includes sitting and former presidents, prime
                 ministers, and senior statesmen from across the Commonwealth.
               </p>
-              <div className="flex w-full shrink-0 items-center justify-end gap-2.5 max-[1659px]:pt-1 min-[1660px]:ml-auto min-[1660px]:w-auto min-[1660px]:justify-end min-[1660px]:pt-0.5">
+              <div className="hidden min-[500px]:flex w-full shrink-0 items-center justify-end gap-2.5 max-[1659px]:pt-1 min-[1660px]:ml-auto min-[1660px]:w-auto min-[1660px]:justify-end min-[1660px]:pt-0.5">
                 <button
                   type="button"
                   className="box-border inline-flex h-16 min-w-[64.89px] shrink-0 items-center justify-center rounded-[17.78px] bg-[#2073A8] px-5 py-2 text-white transition-[filter,transform] hover:brightness-110 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2073A8]"
@@ -221,24 +222,33 @@ export default function LeadershipSection() {
             <article
               key={`leader-${loopIndex}-${id}`}
               data-leader-card
-              className="@container flex w-[min(285px,calc(100%-1.25rem))] shrink-0 snap-start snap-always flex-col gap-4 overflow-hidden rounded-[16px] bg-white pb-6 shadow-[0_1px_3px_rgba(15,23,42,0.08)] max-[1659px]:h-auto max-[1659px]:min-h-0 sm:max-[1659px]:w-[min(285px,calc(100%-1.5rem))] sm:rounded-[20px] min-[1660px]:min-h-[365px] min-[1660px]:w-[285px] min-[1660px]:gap-3 min-[1660px]:rounded-[20px] min-[1660px]:pb-5"
+              className="@container flex w-[min(285px,calc(100%-1.25rem))] shrink-0 snap-start snap-always flex-col gap-4 overflow-hidden rounded-[16px] bg-white pb-6 shadow-[0_1px_3px_rgba(15,23,42,0.08)] max-[1659px]:h-auto min-[801px]:max-[1659px]:min-h-0 max-[450px]:h-[218px] max-[450px]:min-h-[218px] max-[450px]:max-h-[218px] max-[450px]:gap-1 max-[450px]:pb-4 max-[800px]:w-[min(285px,calc((100vw-2.5rem)/2))] min-[801px]:max-[1659px]:w-[min(285px,calc(100%-1.5rem))] sm:rounded-[20px] min-[1660px]:min-h-[365px] min-[1660px]:h-auto min-[1660px]:max-h-none min-[1660px]:w-[285px] min-[1660px]:gap-3 min-[1660px]:rounded-[20px] min-[1660px]:pb-5"
             >
-              <div className="w-full shrink-0 overflow-hidden bg-[#E8E6E1] max-[1659px]:aspect-[285/255] max-[1659px]:h-auto max-[1659px]:min-h-[200px] min-[1660px]:aspect-auto min-[1660px]:h-[255px] min-[1660px]:min-h-[255px] min-[1660px]:max-h-[255px]">
-                <img
-                  src={imageSrc}
-                  alt={name}
-                  className="h-full w-full object-cover max-[1659px]:min-h-[200px] min-[1660px]:min-h-0"
-                  width={285}
-                  height={255}
-                  loading="lazy"
-                  decoding="async"
-                />
+              <div className="w-full min-w-0 shrink-0 self-stretch overflow-hidden bg-[#ebeae1] max-[1659px]:aspect-[285/255] max-[1659px]:h-auto max-[450px]:aspect-auto max-[450px]:h-[155px] max-[450px]:min-h-[155px] max-[450px]:max-h-[155px] max-[450px]:w-full max-[450px]:flex-none max-[450px]:shrink-0 min-[451px]:max-[800px]:min-h-[200px] min-[801px]:max-[1659px]:min-h-[200px] min-[1660px]:aspect-auto min-[1660px]:h-[255px] min-[1660px]:min-h-[255px] min-[1660px]:max-h-[255px] min-[1660px]:flex-none min-[1660px]:shrink-0">
+                {id === '1' ? (
+                  <DitherPortraitImage
+                    src={imageSrc}
+                    alt={name}
+                    className="max-[450px]:min-h-0 min-[451px]:max-[1659px]:min-h-[200px] min-[1660px]:min-h-0"
+                    loading={loopIndex === 0 ? 'eager' : 'lazy'}
+                  />
+                ) : (
+                  <img
+                    src={imageSrc}
+                    alt={name}
+                    className="h-full w-full object-cover max-[450px]:min-h-0 min-[451px]:max-[1659px]:min-h-[200px] min-[1660px]:min-h-0"
+                    width={285}
+                    height={255}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                )}
               </div>
-              <div className="flex w-full min-w-0 flex-col items-start px-4 text-left sm:px-5 max-[1659px]:shrink-0 min-[1660px]:px-4">
-                <h3 className="m-0 min-w-0 max-w-full text-balance font-['DM_Sans',sans-serif] font-semibold leading-[1.18] tracking-normal text-[#111111] [font-size:clamp(13.5px,calc(0.62rem+2.55cqi),16px)]">
+              <div className="flex w-full min-w-0 flex-col items-start px-4 text-left sm:px-5 max-[450px]:min-h-0 max-[450px]:flex-1 max-[450px]:justify-start max-[450px]:overflow-hidden max-[450px]:px-3 max-[450px]:pt-0.5 max-[450px]:shrink min-[451px]:max-[1659px]:shrink-0 min-[801px]:px-4 min-[1660px]:shrink-0 min-[1660px]:px-4">
+                <h3 className="m-0 min-w-0 max-w-full text-balance font-['DM_Sans',sans-serif] font-semibold leading-[1.18] tracking-normal text-[#111111] [font-size:clamp(13.5px,calc(0.62rem+2.55cqi),16px)] max-[450px]:text-[10px] max-[450px]:font-semibold max-[450px]:leading-[1.12] max-[450px]:tracking-normal max-[450px]:line-clamp-2 min-[801px]:leading-[1.18]">
                   {name}
                 </h3>
-                <p className="mt-1.5 min-w-0 max-w-full text-pretty font-['DM_Sans',sans-serif] font-normal leading-[1.28] tracking-normal text-[#999999] [font-size:clamp(11px,calc(0.52rem+1.75cqi),14px)] max-[1659px]:mt-1.5 min-[1660px]:mt-1 min-[1660px]:leading-[1.22]">
+                <p className="mt-1.5 min-w-0 max-w-full text-pretty font-['DM_Sans',sans-serif] font-normal leading-[1.28] tracking-normal text-[#999999] [font-size:clamp(11px,calc(0.52rem+1.75cqi),14px)] max-[1659px]:mt-1.5 min-[1660px]:mt-1 min-[1660px]:leading-[1.22] max-[450px]:mt-1 max-[450px]:text-[9px] max-[450px]:leading-[1.12] max-[450px]:line-clamp-2 min-[801px]:leading-[1.28]">
                   {role}
                 </p>
               </div>

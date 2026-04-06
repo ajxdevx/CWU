@@ -15,15 +15,15 @@ const HEADLINE_LIGHT = '#227BB3'
 const WATERMARK_PHRASE = 'Where communities become economies'
 
 const watermarkTextClass =
-  "inline-block shrink-0 whitespace-nowrap pr-14 font-cwu-serif text-[clamp(2.25rem,8vw,120px)] font-normal leading-[1.2] tracking-[-1px] text-[#D2D8DB] sm:pr-20 lg:pr-28"
+  "inline-block shrink-0 whitespace-nowrap pr-14 font-cwu-serif text-[clamp(2.25rem,8vw,120px)] mobile:text-[64px] mobile:pr-6 font-normal leading-[1.2] tracking-[-1px] text-[#D2D8DB] sm:pr-20 lg:pr-28"
 
-/** Body copy: scales with column width (cqi) so manual line breaks track the same structure across widths */
+/** Body copy: Network card mobile size/leading at ≤800px; from 801px uses shared @container (cqi) for both columns. */
 const aboutBodyClass =
-  "m-0 min-w-0 max-w-none text-left font-['DM_Sans',sans-serif] font-normal tracking-normal text-[#777777] leading-[1.45] [font-size:clamp(0.6875rem,calc(0.5rem+2.35cqi),1.25rem)]"
+  "m-0 min-w-0 max-w-none text-center min-[801px]:text-left font-['DM_Sans',sans-serif] font-normal tracking-normal text-[#777777] max-[800px]:text-[clamp(12px,1.55dvh+0.28rem,15px)] max-[800px]:leading-[1.36] min-[801px]:[font-size:clamp(0.8125rem,calc(0.55rem+2.1cqi),1.3125rem)] min-[801px]:leading-[1.45]"
 
 function GlobeCard() {
   return (
-    <div className="relative flex min-h-[200px] w-full max-w-[750px] flex-col overflow-hidden rounded-[24px] bg-[#014778] sm:rounded-[28px] aspect-4/3 max-lg:w-full lg:aspect-auto lg:h-full lg:min-h-0 lg:max-w-none lg:w-full lg:flex-1">
+    <div className="relative flex min-h-[200px] w-full max-w-[750px] flex-col overflow-hidden rounded-[24px] bg-[#014778] sm:rounded-[28px] aspect-4/3 max-lg:w-full lg:aspect-auto lg:h-full lg:min-h-0 lg:max-w-[min(100%,720px)] lg:w-full lg:flex-1">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-[1] opacity-[0.45]"
@@ -67,27 +67,27 @@ export default function CommonwealthSection() {
       <div className="relative flex min-h-svh min-w-0 flex-col">
         <div
           aria-hidden
-          className="cwu-watermark-marquee-viewport pointer-events-none absolute left-0 right-0 top-0 z-0 flex h-[322px] flex-col justify-center overflow-x-hidden overflow-y-visible py-6 sm:py-8 lg:py-8"
+          className="cwu-watermark-marquee-viewport pointer-events-none absolute left-0 right-0 top-0 z-0 flex h-[322px] flex-col justify-center overflow-x-hidden overflow-y-visible py-6 mobile:h-[200px] mobile:py-3 sm:py-8 lg:py-8"
         >
-          <div className="cwu-watermark-marquee-track pl-4 sm:pl-6 lg:pl-10 min-[1800px]:pl-8">
+          <div className="cwu-watermark-marquee-track pl-4 mobile:pl-2 sm:pl-6 lg:pl-10 min-[1800px]:pl-8">
             <span className={watermarkTextClass}>{WATERMARK_PHRASE}</span>
             <span className={watermarkTextClass}>{WATERMARK_PHRASE}</span>
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto flex w-full max-w-[1685px] min-h-0 flex-1 flex-col px-4 pb-10 pt-[calc(322px+1.5rem)] sm:px-6 sm:pb-12 lg:px-10 lg:pb-16 min-[1800px]:px-8">
-          <div className="grid min-h-0 flex-1 grid-cols-1 content-end items-stretch gap-10 lg:grid-cols-2 lg:content-stretch lg:items-stretch lg:gap-x-0 lg:gap-y-10">
-            <div className="flex w-full min-h-0 flex-col items-stretch lg:h-full lg:min-h-0 lg:pr-8 xl:pr-12">
+        <div className="relative z-10 flex w-full min-h-0 flex-1 flex-col px-0 pb-10 pt-[calc(322px+1.5rem)] mobile:pt-[calc(200px+1rem)] sm:pb-12 lg:pb-16">
+          <div className="grid min-h-0 w-full flex-1 grid-cols-1 content-end items-stretch gap-10 lg:grid-cols-[minmax(0,45fr)_minmax(0,55fr)] lg:gap-x-8 lg:gap-y-10 xl:gap-x-12 lg:content-stretch lg:items-stretch">
+            <div className="flex w-full min-h-0 flex-col items-stretch px-4 sm:px-6 lg:h-full lg:min-h-0 lg:items-end lg:pl-8 lg:pr-2 xl:pl-12">
               <GlobeCard />
             </div>
 
-            <div className="mx-auto flex min-h-0 w-full min-w-0 max-w-2xl flex-col items-stretch gap-5 pb-1 text-left sm:gap-6 lg:mx-0 lg:max-w-none lg:min-w-0 lg:gap-8 lg:pl-8 xl:pl-12">
-              <p className="m-0 w-full text-left font-['DM_Sans',sans-serif] text-xl font-semibold leading-[1.2] tracking-[1.8px] text-[#6B7280] sm:text-2xl">
+            <div className="mx-auto flex min-h-0 w-full min-w-0 max-w-2xl flex-col items-stretch gap-5 px-4 pb-1 text-left mobile:text-center sm:gap-6 sm:px-6 lg:mx-0 lg:max-w-none lg:min-w-0 lg:gap-8 lg:px-0 lg:pl-6 lg:pr-10 xl:pl-8 xl:pr-12 lg:text-left">
+              <p className="m-0 w-full font-['DM_Sans',sans-serif] text-xl font-semibold leading-[1.2] tracking-[1.8px] text-[#6B7280] sm:text-2xl">
                 What is Commonwealth Union?
               </p>
               <h2
                 id="cwu-about-heading"
-                className="m-0 w-full max-w-none text-left font-cwu-serif text-[clamp(1.75rem,4.5vw+0.5rem,4rem)] font-normal leading-[1.1] tracking-[0] min-[900px]:text-[3.25rem] lg:text-[64px]"
+                className="m-0 w-full max-w-none font-cwu-serif text-[clamp(1.75rem,4.5vw+0.5rem,4rem)] font-normal leading-[1.1] tracking-[0] min-[900px]:text-[3.25rem] lg:text-[64px]"
               >
                 <span className="block text-balance" style={{ color: HEADLINE_DARK }}>
                   An established global network spanning{' '}
@@ -96,24 +96,68 @@ export default function CommonwealthSection() {
                   all 56 nations
                 </span>
               </h2>
-              <div className="grid w-full min-w-0 grid-cols-1 gap-x-10 gap-y-4 text-left md:grid-cols-[minmax(0,3fr)_minmax(0,2.05fr)] md:gap-x-12 md:gap-y-5 lg:gap-x-16 xl:gap-x-20">
-                <div className="@container min-w-0">
+              {/* Shared @container + equal body cols; tighter gap-x leaves more px per column for manual line breaks. */}
+              <div className="@container grid w-full min-w-0 grid-cols-1 gap-x-6 gap-y-4 text-center min-[801px]:text-left md:grid-cols-2 md:gap-x-8 md:gap-y-5 lg:gap-x-10">
+                {/* Mobile ≤800px: first block includes “represented by…”; second block starts at “It puts…”. */}
+                <div className="min-w-0 max-[800px]:block min-[801px]:hidden">
                   <p className={aboutBodyClass}>
-                    Commonwealth Union is an established global network with 12 million readers, a $19
-                    trillion GDP footprint, and an International Advisory Board of presidents, prime
-                    ministers, and senior statesmen.
+                    Commonwealth Union is an established global
                     <br />
-                    The CWU token is created by Commonwealth Union Blockchain Network, an official
-                    vertical of Commonwealth Union.
+                    network with 12 million readers, a $19 trillion
+                    <br />
+                    GDP footprint, and an International Advisory
+                    <br />
+                    Board of presidents, prime ministers, and
+                    <br />
+                    senior statesmen. The CWU token is created
+                    <br />
+                    by Commonwealth Union Blockchain Network,
+                    <br />
+                    an official vertical of Commonwealth Union.
+                    <br />
+                    represented by His Highness Sheikh Saoud bin
+                    <br />
+                    Faisal Sultan Alqasimi.
                   </p>
                 </div>
-                <div className="@container min-w-0">
+                <div className="min-w-0 max-[800px]:block min-[801px]:hidden">
                   <p className={aboutBodyClass}>
-                    represented by His Highness Sheikh Saoud bin Faisal Sultan Alqasimi.
+                    It puts the network on-chain, opening up
                     <br />
-                    It puts the network on-chain, opening up participation and cross-border commerce.
+                    participation and cross-border commerce.
                     <br />
                     Built for people, not politics.
+                  </p>
+                </div>
+                {/* ≥801px: original two columns (unchanged). */}
+                <div className="min-w-0 hidden min-[801px]:block">
+                  <p className={aboutBodyClass}>
+                    Commonwealth Union is an established global
+                    <br />
+                    network with 12 million readers, a $19 trillion
+                    <br />
+                    GDP footprint, and an International Advisory
+                    <br />
+                    Board of presidents, prime ministers, and
+                    <br />
+                    senior statesmen. The CWU token is created
+                    <br />
+                    by Commonwealth Union Blockchain Network,
+                    <br />
+                    an official vertical of Commonwealth Union.
+                  </p>
+                </div>
+                <div className="min-w-0 hidden min-[801px]:block">
+                  <p className={aboutBodyClass}>
+                    represented by His Highness Sheikh Saoud bin
+                    <br />
+                    Faisal Sultan Alqasimi. It puts the network on-
+                    <br />
+                    chain, opening up participation and cross-
+                    <br />
+                    border commerce. Built for people, not
+                    <br />
+                    politics.
                   </p>
                 </div>
               </div>
@@ -140,13 +184,13 @@ export default function CommonwealthSection() {
       </div>
 
       <div className="flex min-h-0 w-full shrink-0 flex-col border-t border-[#E6E2D9] bg-white lg:h-[300px] lg:min-h-0">
-        <div className="mx-auto grid min-h-0 w-full min-w-0 max-w-[1685px] grid-cols-1 divide-y divide-[#E6E2D9] px-4 py-10 sm:px-6 md:px-10 lg:h-full lg:grid-cols-5 lg:gap-x-0 lg:gap-y-0 lg:content-center lg:divide-x lg:divide-y-0 lg:divide-[#E6E2D9] lg:overflow-x-hidden lg:px-10 lg:py-0 min-[1800px]:px-8">
+        <div className="mx-auto grid min-h-0 w-full min-w-0 max-w-[min(1920px,100%)] grid-cols-1 divide-y divide-[#E6E2D9] px-4 py-10 sm:px-6 md:px-10 lg:h-full lg:grid-cols-5 lg:gap-x-0 lg:gap-y-0 lg:content-center lg:divide-x lg:divide-y-0 lg:divide-[#E6E2D9] lg:overflow-x-hidden lg:px-10 lg:py-0 min-[1800px]:px-10">
           {STATS.map(({ value, label }) => (
             <div
               key={label}
               className="flex min-w-0 flex-col items-center justify-center gap-1 px-2 py-1 max-lg:py-8 sm:gap-1.5 lg:flex-1 lg:px-3"
             >
-              <p className="m-0 w-full text-center font-cwu-serif text-[clamp(1.6875rem,4vw,56px)] font-normal leading-none tracking-normal text-[#0A1628] min-[900px]:text-[56px] min-[900px]:leading-[56px]">
+              <p className="m-0 w-full text-center font-cwu-serif text-[clamp(1.6875rem,4vw,56px)] font-normal leading-none tracking-normal text-[#0A1628] mobile:text-[40px] min-[900px]:text-[56px] min-[900px]:leading-[56px]">
                 {value}
               </p>
               <p className="m-0 w-full min-w-0 max-w-[225px] text-center font-['DM_Sans',sans-serif] text-[clamp(13px,1.65vw,20px)] font-normal leading-[1.2] tracking-[0.3px] text-[#999999] break-words [overflow-wrap:anywhere] sm:max-w-none">

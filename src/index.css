@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
-/* Mobile-first: default utilities apply below 800px; `sm:` and `md:` start at 800px. */
+/**
+ * Breakpoints: `sm:` / `md:` use min-width 800px (see @theme).
+ * `mobile:` = viewport width ≤800px only — use for phone-only tweaks; leave `lg:`+ / tablet+ alone.
+ */
+@custom-variant mobile (@media (max-width: 800px));
+
 @theme {
   --breakpoint-sm: 800px;
   --breakpoint-md: 800px;
@@ -19,6 +24,14 @@
 /* Georgia is not bundled on many Android devices; Noto Serif matches intent and loads with the app. */
 .font-cwu-serif {
   font-family: "Noto Serif", Georgia, "Times New Roman", Times, serif;
+}
+
+/* Leadership ordered-dither portrait (canvas); keeps sharp scaling in card */
+.cwu-dither-canvas {
+  display: block;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -149,7 +162,7 @@ body::-webkit-scrollbar {
 @media (max-width: 800px) {
   .hero-section-scroll .hero-contract-mobile-offset {
     position: relative;
-    top: 4.6rem;
+    top: 6.5rem;
   }
 
   section.hero-section-scroll {
@@ -352,12 +365,12 @@ body::-webkit-scrollbar {
     animation-timing-function: var(--hero-ease);
     animation-delay: 0.28s;
     animation-fill-mode: forwards;
-    transform-origin: 76% 64%;
+    transform-origin: center center;
   }
 
   .hero-fold-graphic-inner {
-    transform: translateX(min(-2.5rem, -15vw)) translateY(min(2.75vh, 1.2rem));
-    transform-origin: 76% 64%;
+    transform: translateX(0) translateY(0) scale(0.796);
+    transform-origin: center center;
   }
 }
 

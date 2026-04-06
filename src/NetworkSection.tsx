@@ -13,19 +13,23 @@ type NetworkColumn = {
   readonly iconSrc: string
 }
 
+/** Media card: desktop line breaks after “across” and after “reader” (matches min-[1275px] card grid). */
+const MEDIA_BODY_MOBILE =
+  'Audience, content, and distribution across Commonwealth markets. The existing 12 million reader network is the foundation.'
+
 const COLUMNS: readonly NetworkColumn[] = [
   {
     n: '01',
     title: 'Media',
-    body: 'Audience, content, and distribution across Commonwealth markets. The existing 12 million reader network is the foundation.',
+    body: MEDIA_BODY_MOBILE,
     bg: 'bg-[#0A1628]',
     iconSrc: '/Vector%281%29.svg',
   },
   {
     n: '02',
     title: 'Network',
-    body: 'Connecting 150M SMEs and 100M+ diaspora professionals into',
-    bodyLine2: 'one accessible ecosystem for cross-border',
+    body: 'Connecting 150M SMEs and 100M+ diaspora professionals',
+    bodyLine2: 'into one accessible ecosystem for cross-border',
     bodyLine3: 'commerce.',
     bg: 'bg-[#014778]',
     iconSrc: '/Frame%2010.svg',
@@ -33,12 +37,110 @@ const COLUMNS: readonly NetworkColumn[] = [
   {
     n: '03',
     title: 'Infrastructure',
-    body: 'The vision extends into financial tools, settlement systems, and cross-border connectivity',
-    bodyLine2: 'for a $19T economy.',
+    body: 'The vision extends into financial tools, settlement systems,',
+    bodyLine2: 'and cross-border connectivity for a $19T economy.',
     bg: 'bg-[#2073A8]',
     iconSrc: '/Frame%2015.svg',
   },
 ] as const satisfies readonly NetworkColumn[]
+
+/** Teal index (01, 02, 03) — fixed 20px per design */
+const networkCardNumberClass =
+  "w-max shrink-0 text-right font-['DM_Sans',sans-serif] text-[20px] font-bold leading-[1.2] tracking-[1.5px]"
+
+const titleClass =
+  "m-0 mb-2 min-w-0 font-cwu-serif text-[clamp(1.375rem,0.28rem+3.9vw,2rem)] font-normal leading-[1.2] tracking-[0] text-white md:text-[32px]"
+
+const bodyClass =
+  "m-0 w-full min-w-0 break-words text-white/80 [overflow-wrap:anywhere] font-['DM_Sans',sans-serif] text-[clamp(0.96875rem,0.32rem+3.05vw,1.22rem)] font-normal leading-[1.35] tracking-[0] mobile:text-[clamp(12px,1.55dvh+0.28rem,15px)] mobile:leading-[1.36] md:text-[20px] md:leading-[23.9px]"
+
+/** Stacked cards (below 1275px): manual breaks only at max-width 800px; 801+ keeps original line structure. */
+function NetworkCardBodyStacked({ col }: { readonly col: NetworkColumn }) {
+  if (col.n === '01') {
+    return (
+      <>
+        <span className="max-[800px]:block min-[801px]:hidden">
+          Audience, content, and distribution across
+          <br />
+          Commonwealth markets. The existing 12
+          <br />
+          million reader network is the foundation.
+        </span>
+        <span className="hidden min-[801px]:contents">{MEDIA_BODY_MOBILE}</span>
+      </>
+    )
+  }
+  if (col.n === '02') {
+    return (
+      <>
+        <span className="max-[800px]:block min-[801px]:hidden">
+          Connecting 150M SMEs and 100M+ diaspora
+          <br />
+          professionals into one accessible ecosystem
+          <br />
+          for cross-border commerce.
+        </span>
+        <span className="hidden min-[801px]:contents">
+          {col.body}
+          <br />
+          {col.bodyLine2}
+          <br />
+          {col.bodyLine3}
+        </span>
+      </>
+    )
+  }
+  if (col.n === '03') {
+    return (
+      <>
+        <span className="max-[800px]:block min-[801px]:hidden">
+          The vision extends into financial tools,
+          <br />
+          settlement systems, and cross-border
+          <br />
+          connectivity for a $19T economy.
+        </span>
+        <span className="hidden min-[801px]:contents">
+          {col.body}
+          <br />
+          {col.bodyLine2}
+        </span>
+      </>
+    )
+  }
+  return null
+}
+
+function NetworkCardBodyDesktop({ col }: { readonly col: NetworkColumn }) {
+  if (col.n === '01') {
+    return (
+      <>
+        Audience, content, and distribution across
+        <br />
+        Commonwealth markets. The existing 12 million reader
+        <br />
+        network is the foundation.
+      </>
+    )
+  }
+  return (
+    <>
+      {col.body}
+      {col.bodyLine2 != null ? (
+        <>
+          <br />
+          {col.bodyLine2}
+        </>
+      ) : null}
+      {col.bodyLine3 != null ? (
+        <>
+          <br />
+          {col.bodyLine3}
+        </>
+      ) : null}
+    </>
+  )
+}
 
 export default function NetworkSection() {
   return (
@@ -79,13 +181,16 @@ export default function NetworkSection() {
         </div>
       </div>
 
-      <div className="grid w-full min-w-0 grid-cols-1 text-left min-[1275px]:grid-cols-3">
-        {COLUMNS.map(({ n, title, body, bodyLine2, bodyLine3, bg, iconSrc }) => (
+      {/* Mobile / tablet: stacked cards — title + body block anchored bottom (unchanged). */}
+      <div className="grid w-full min-w-0 grid-cols-1 items-stretch overflow-x-clip text-left min-[1275px]:hidden">
+        {COLUMNS.map((col) => {
+          const { n, title, bg, iconSrc } = col
+          return (
           <div
             key={n}
-            className={`${bg} box-border flex min-h-[260px] min-w-0 flex-col overflow-x-hidden overflow-y-visible px-5 py-8 sm:px-7 sm:py-10 min-[1275px]:min-h-[325px] lg:px-10 lg:py-14`}
+            className={`${bg} relative box-border flex h-full min-h-[260px] min-w-0 flex-col overflow-visible px-5 py-8 sm:px-7 sm:py-10 lg:px-10 lg:py-14`}
           >
-            <div className="flex shrink-0 items-start justify-between gap-4">
+            <div className="relative z-10 flex shrink-0 items-start justify-between gap-4">
               <img
                 src={iconSrc}
                 alt=""
@@ -93,33 +198,45 @@ export default function NetworkSection() {
                 decoding="async"
                 className="h-10 w-auto max-h-12 max-w-[3rem] shrink-0 object-contain object-left opacity-95"
               />
-              <span
-                className="w-max shrink-0 text-right font-['DM_Sans',sans-serif] text-[20px] font-bold leading-[1.2] tracking-[1.5px]"
-                style={{ color: TEAL }}
-              >
+              <span className={networkCardNumberClass} style={{ color: TEAL }}>
                 {n}
               </span>
             </div>
-            <div className="mt-auto flex min-h-0 w-full min-w-0 flex-col">
-              <h3 className="m-0 mb-3 min-w-0 font-cwu-serif text-[clamp(1.375rem,0.28rem+3.9vw,2rem)] font-normal leading-[1.2] tracking-[0] text-white md:mb-4 md:text-[32px]">
-                {title}
-              </h3>
-              <p className="m-0 w-full min-w-0 break-words text-white/80 [overflow-wrap:anywhere] font-['DM_Sans',sans-serif] text-[clamp(0.96875rem,0.32rem+3.05vw,1.22rem)] font-normal leading-[1.35] tracking-[0] md:text-[20px] md:leading-[23.9px]">
-                {body}
-                {bodyLine2 != null ? (
-                  <>
-                    <br />
-                    {bodyLine2}
-                  </>
-                ) : null}
-                {bodyLine3 != null ? (
-                  <>
-                    <br />
-                    {bodyLine3}
-                  </>
-                ) : null}
+            <div className="w-full min-w-0 shrink-0 absolute inset-x-5 bottom-2 top-[4.25rem] z-0 flex min-h-0 flex-col justify-end pb-2.5 mobile:bottom-6 sm:inset-x-7 sm:bottom-3 sm:pb-3.5 sm:top-[5rem] lg:inset-x-10 lg:bottom-3.5 lg:pb-4 lg:top-[5.5rem]">
+              <h3 className={`${titleClass} mb-3 md:mb-4`}>{title}</h3>
+              <p className={bodyClass}>
+                <NetworkCardBodyStacked col={col} />
               </p>
             </div>
+          </div>
+          )
+        })}
+      </div>
+
+      {/* Desktop: shared row tracks — row 3 = titles, row 4 = body. Grid min-height + minmax(0,1fr) so the middle row doesn’t collapse to 0 when height was indefinite. */}
+      <div className="hidden min-[1275px]:grid min-[1275px]:min-h-[325px] min-[1275px]:w-full min-[1275px]:grid-cols-3 min-[1275px]:grid-rows-[auto_minmax(0,0.65fr)_auto_auto] min-[1275px]:items-stretch min-[1275px]:overflow-x-clip min-[1275px]:text-left">
+        {COLUMNS.map((col) => (
+          <div
+            key={col.n}
+            className={`${col.bg} box-border row-span-4 grid min-h-0 grid-rows-subgrid px-5 pt-8 sm:px-7 sm:pt-10 lg:px-10 lg:pt-14`}
+          >
+            <div className="relative z-10 flex shrink-0 items-start justify-between gap-4">
+              <img
+                src={col.iconSrc}
+                alt=""
+                aria-hidden
+                decoding="async"
+                className="h-10 w-auto max-h-12 max-w-[3rem] shrink-0 object-contain object-left opacity-95"
+              />
+              <span className={networkCardNumberClass} style={{ color: TEAL }}>
+                {col.n}
+              </span>
+            </div>
+            <div aria-hidden className="min-h-0 min-w-0" />
+            <h3 className={`${titleClass} self-start -translate-y-2.5`}>{col.title}</h3>
+            <p className={`${bodyClass} self-start -translate-y-2.5 pb-1.5 sm:pb-2.5 lg:pb-3`}>
+              <NetworkCardBodyDesktop col={col} />
+            </p>
           </div>
         ))}
       </div>

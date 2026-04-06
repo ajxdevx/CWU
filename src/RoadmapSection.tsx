@@ -33,29 +33,28 @@ const CARDS = [
   },
 ] as const
 
-/** Tag chips: first cards stay one row on small screens; last card may wrap. */
-const TAG_ROW_WRAP =
-  'mt-3 flex shrink-0 flex-wrap items-center justify-start gap-[10px] sm:mt-4'
-const TAG_ROW_SINGLE =
+/** Tag chips: same row + pill style as first card (e.g. “Cross-border payments”) on all breakpoints. */
+const TAG_ROW =
   'mt-3 flex shrink-0 flex-nowrap items-center justify-start gap-2 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] sm:mt-4 sm:gap-[10px] [&::-webkit-scrollbar]:hidden'
 const TAG_BOX =
-  "box-border inline-flex h-fit w-fit shrink-0 items-center justify-center rounded-lg bg-[#F0EEEA]/16 px-3 py-2 font-['DM_Sans',sans-serif] text-[16px] font-medium leading-[1.2] tracking-normal text-[#F7F7F7]"
-const TAG_BOX_COMPACT =
   "box-border inline-flex h-fit w-fit shrink-0 items-center justify-center whitespace-nowrap rounded-lg bg-[#F0EEEA]/16 px-2 py-1.5 font-['DM_Sans',sans-serif] text-[clamp(12px,2.85vw,16px)] font-medium leading-[1.2] tracking-normal text-[#F7F7F7] sm:px-3 sm:py-2"
 
-/** Badge label (Figma text): DM Sans bold 16px, leading 120%, tracking 1.2px, #1FB893 */
+/** Same text size + padding as `TAG_BOX`; original Active/Direction colors and borders unchanged. */
 const BADGE_TEXT =
-  "font-['DM_Sans',sans-serif] text-[16px] font-bold uppercase leading-[1.2] tracking-[1.2px] text-[#1FB893]"
-
-/** Active: fill #2DD4A8 @ 10%, stroke 1px @ 30%, radius 8, padding 8×12 */
+  "font-['DM_Sans',sans-serif] text-[clamp(12px,2.85vw,16px)] font-bold uppercase leading-[1.2] tracking-[1.2px] text-[#1FB893]"
 const BADGE_ACTIVE =
-  'rounded-lg border border-[#2DD4A8]/30 bg-[#2DD4A8]/10 px-3 py-2'
-/** Direction: same box pattern, softer fill/stroke */
+  'rounded-lg border border-[#2DD4A8]/30 bg-[#2DD4A8]/10 px-2 py-1.5 sm:px-3 sm:py-2'
 const BADGE_DIRECTION =
-  'rounded-lg border border-[#2DD4A8]/20 bg-[#2DD4A8]/5 px-3 py-2'
+  'rounded-lg border border-[#2DD4A8]/20 bg-[#2DD4A8]/5 px-2 py-1.5 sm:px-3 sm:py-2'
 
 const badgeClass = (tone: 'active' | 'direction') =>
   `${BADGE_TEXT} ${tone === 'active' ? BADGE_ACTIVE : BADGE_DIRECTION}`
+
+/** Match NetworkSection card title + body (NetworkSection `titleClass` / `bodyClass`). */
+const networkCardTitleClass =
+  "m-0 w-full min-w-0 text-balance font-cwu-serif text-[clamp(1.375rem,0.28rem+3.9vw,2rem)] font-normal leading-[1.2] tracking-[0] text-white md:text-[32px]"
+const networkCardBodyClass =
+  "m-0 min-h-0 w-full min-w-0 break-words text-white/80 [overflow-wrap:anywhere] font-['DM_Sans',sans-serif] text-[clamp(0.96875rem,0.32rem+3.05vw,1.22rem)] font-normal leading-[1.35] tracking-[0] mobile:text-[clamp(12px,1.55dvh+0.28rem,15px)] mobile:leading-[1.36] md:text-[20px] md:leading-[23.9px]"
 
 export default function RoadmapSection() {
   return (
@@ -88,8 +87,7 @@ export default function RoadmapSection() {
         </div>
 
         <div className="mt-6 grid min-h-0 w-full min-w-0 flex-1 grid-cols-1 justify-items-center gap-6 sm:mt-8 min-[1280px]:mt-10 min-[1280px]:grid-cols-2 min-[1680px]:grid-cols-3 min-[1680px]:gap-x-8 min-[1680px]:gap-y-6">
-          {CARDS.map(({ badge, badgeTone, title, body, tags, bg }, cardIndex) => {
-            const isLastCard = cardIndex === CARDS.length - 1
+          {CARDS.map(({ badge, badgeTone, title, body, tags, bg }) => {
             return (
               <div
                 key={title}
@@ -109,15 +107,11 @@ export default function RoadmapSection() {
                     />
                   </div>
                   <div className="flex min-h-0 min-w-0 flex-1 flex-col justify-center gap-4 text-left sm:gap-5">
-                    <h3 className="m-0 w-full min-w-0 text-balance font-cwu-serif text-[clamp(1.5rem,4.25vw,2rem)] font-normal leading-[1.2] tracking-normal text-white md:text-[32px]">
-                      {title}
-                    </h3>
-                    <p className="m-0 min-h-0 w-full min-w-0 font-['DM_Sans',sans-serif] text-[clamp(1.0625rem,3.4vw,1.3125rem)] font-normal leading-[1.36] tracking-normal text-white/70 md:text-[20px] md:leading-[23.9px]">
-                      {body}
-                    </p>
-                    <div className={isLastCard ? TAG_ROW_WRAP : TAG_ROW_SINGLE}>
+                    <h3 className={networkCardTitleClass}>{title}</h3>
+                    <p className={networkCardBodyClass}>{body}</p>
+                    <div className={TAG_ROW}>
                       {tags.map((t) => (
-                        <span key={t} className={isLastCard ? TAG_BOX : TAG_BOX_COMPACT}>
+                        <span key={t} className={TAG_BOX}>
                           {t}
                         </span>
                       ))}
