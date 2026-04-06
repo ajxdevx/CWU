@@ -1,17 +1,6 @@
-import { useEffect, useRef } from 'react'
 import { ArrowRight } from 'lucide-react'
 
 const ABOUT_SECTION_ID = 'about'
-
-/** Extra rAF frames after each scroll event (helps momentum / sparse scroll events). */
-const GLOBE_SCROLL_SCRUB_BURST_FRAMES = 14
-
-/**
- * Scroll→video progress: t = raw ** EXPO (raw in [0,1]). Expo in (0,1) = faster motion while
- * scrolling (still t=1 only when the section finishes crossing — unlike multiplying raw by 3+).
- * Lower = snappier (e.g. 0.45 aggressive, 0.55 balanced, 0.7 mild).
- */
-const GLOBE_SCROLL_SCRUB_EXPO = 0.52
 
 const STATS = [
   { value: '56', label: 'Commonwealth nations' },
@@ -35,76 +24,6 @@ const aboutBodyClass =
   "m-0 min-w-0 max-w-none text-center min-[801px]:text-left font-['DM_Sans',sans-serif] font-normal tracking-normal text-[#777777] max-[800px]:text-[clamp(12px,1.55dvh+0.28rem,15px)] max-[800px]:leading-[1.36] min-[801px]:[font-size:clamp(0.8125rem,calc(0.55rem+2.1cqi),1.3125rem)] min-[801px]:leading-[1.45]"
 
 function GlobeCard() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const rafRef = useRef(0)
-  const burstLeftRef = useRef(0)
-
-  /** Scroll-scrub: `#about` vs viewport → `currentTime` (no `play()`). See GLOBE_SCROLL_SCRUB_EXPO. */
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduceMotion) return
-
-    const section = document.getElementById(ABOUT_SECTION_ID)
-    if (!section) return
-
-    const scrollRoots: (HTMLElement | Window)[] = []
-    const rootEl = document.getElementById('root')
-    if (rootEl) scrollRoots.push(rootEl)
-    scrollRoots.push(window)
-
-    const updateFromScroll = () => {
-      const dur = video.duration
-      if (!Number.isFinite(dur) || dur <= 0) return
-
-      const r = section.getBoundingClientRect()
-      const rootH = window.innerHeight || document.documentElement.clientHeight
-      const denom = rootH + r.height
-      if (denom <= 0) return
-
-      const raw = Math.min(1, Math.max(0, (rootH - r.top) / denom))
-      const t = Math.pow(raw, GLOBE_SCROLL_SCRUB_EXPO)
-      video.currentTime = t * dur
-    }
-
-    const tick = () => {
-      updateFromScroll()
-      if (burstLeftRef.current > 0) {
-        burstLeftRef.current -= 1
-        rafRef.current = requestAnimationFrame(tick)
-      }
-    }
-
-    const onScroll = () => {
-      burstLeftRef.current = GLOBE_SCROLL_SCRUB_BURST_FRAMES
-      cancelAnimationFrame(rafRef.current)
-      rafRef.current = requestAnimationFrame(tick)
-    }
-
-    const onMeta = () => {
-      onScroll()
-    }
-
-    video.addEventListener('loadedmetadata', onMeta)
-    for (const el of scrollRoots) {
-      el.addEventListener('scroll', onScroll, { passive: true })
-    }
-    window.addEventListener('resize', onScroll, { passive: true })
-    onScroll()
-
-    return () => {
-      burstLeftRef.current = 0
-      cancelAnimationFrame(rafRef.current)
-      video.removeEventListener('loadedmetadata', onMeta)
-      for (const el of scrollRoots) {
-        el.removeEventListener('scroll', onScroll)
-      }
-      window.removeEventListener('resize', onScroll)
-    }
-  }, [])
-
   return (
     <div
       className="relative flex min-h-[200px] w-full max-w-[750px] flex-col overflow-hidden rounded-[24px] bg-[#014778] sm:rounded-[28px] aspect-4/3 max-lg:w-full lg:aspect-auto lg:h-full lg:min-h-0 lg:max-w-[min(100%,720px)] lg:w-full lg:flex-1"
@@ -131,14 +50,15 @@ function GlobeCard() {
       />
       <div className="relative z-[2] flex min-h-0 w-full flex-1 items-center justify-center">
         <video
-          ref={videoRef}
           aria-hidden
           className="cwu-tricolor-dither h-full w-full max-h-none min-h-0 object-contain object-center scale-[1.08]"
+          autoPlay
+          loop
           muted
           playsInline
           preload="auto"
         >
-          <source src="/Globe%2002.mp4" type="video/mp4" />
+          <source src="/Globe%202.0.mov" type="video/quicktime" />
         </video>
       </div>
     </div>

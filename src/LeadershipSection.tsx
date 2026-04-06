@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useRef } from 'react'
+import LeaderHalftoneImage from './LeaderHalftoneImage'
 
 const cardImage = (filename: string) => `/cardimages/${encodeURIComponent(filename)}`
 
@@ -224,14 +225,11 @@ export default function LeadershipSection() {
               className="@container flex w-[min(285px,calc(100%-1.25rem))] shrink-0 snap-start snap-always flex-col gap-4 overflow-hidden rounded-[16px] bg-white pb-6 shadow-[0_1px_3px_rgba(15,23,42,0.08)] max-[1659px]:h-auto min-[801px]:max-[1659px]:min-h-0 max-[450px]:h-[218px] max-[450px]:min-h-[218px] max-[450px]:max-h-[218px] max-[450px]:gap-1 max-[450px]:pb-4 max-[800px]:w-[min(285px,calc((100vw-2.5rem)/2))] min-[801px]:max-[1659px]:w-[min(285px,calc(100%-1.5rem))] sm:rounded-[20px] min-[1660px]:min-h-[365px] min-[1660px]:h-auto min-[1660px]:max-h-none min-[1660px]:w-[285px] min-[1660px]:gap-3 min-[1660px]:rounded-[20px] min-[1660px]:pb-5"
             >
               <div className="w-full min-w-0 shrink-0 self-stretch overflow-hidden bg-[#ebeae1] max-[1659px]:aspect-[285/255] max-[1659px]:h-auto max-[450px]:aspect-auto max-[450px]:h-[155px] max-[450px]:min-h-[155px] max-[450px]:max-h-[155px] max-[450px]:w-full max-[450px]:flex-none max-[450px]:shrink-0 min-[451px]:max-[800px]:min-h-[200px] min-[801px]:max-[1659px]:min-h-[200px] min-[1660px]:aspect-auto min-[1660px]:h-[255px] min-[1660px]:min-h-[255px] min-[1660px]:max-h-[255px] min-[1660px]:flex-none min-[1660px]:shrink-0">
-                <img
+                <LeaderHalftoneImage
                   src={imageSrc}
                   alt={name}
-                  className="h-full w-full object-cover max-[450px]:min-h-0 min-[451px]:max-[1659px]:min-h-[200px] min-[1660px]:min-h-0"
-                  width={285}
-                  height={255}
+                  className="max-[450px]:min-h-0 min-[451px]:max-[1659px]:min-h-[200px] min-[1660px]:min-h-0"
                   loading={loopIndex === 0 ? 'eager' : 'lazy'}
-                  decoding="async"
                 />
               </div>
               <div className="flex w-full min-w-0 flex-col items-start px-4 text-left sm:px-5 max-[450px]:min-h-0 max-[450px]:flex-1 max-[450px]:justify-start max-[450px]:overflow-hidden max-[450px]:px-3 max-[450px]:pt-0.5 max-[450px]:shrink min-[451px]:max-[1659px]:shrink-0 min-[801px]:px-4 min-[1660px]:shrink-0 min-[1660px]:px-4">
