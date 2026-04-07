@@ -7,7 +7,6 @@ import FAQSection from '@/sections/FAQSection'
 import Footer from '@/sections/Footer'
 import HowToBuySection from '@/sections/HowToBuySection'
 import JoinCommunitySection from '@/sections/JoinCommunitySection'
-import LeadershipSection from '@/sections/LeadershipSection'
 import NetworkSection from '@/sections/NetworkSection'
 import RoadmapSection from '@/sections/RoadmapSection'
 import Hero from '@/sections/hero/Hero'
@@ -57,9 +56,6 @@ function App() {
       </SectionReveal>
       <SectionReveal surfaceClassName="bg-[#F7F5F0]" className="w-full min-w-0">
         <CommonwealthSection />
-      </SectionReveal>
-      <SectionReveal surfaceClassName="bg-[#FAF9F6]" className="w-full min-w-0">
-        <LeadershipSection />
       </SectionReveal>
       <SectionReveal surfaceClassName="bg-white" className="w-full min-w-0">
         <HowToBuySection />
