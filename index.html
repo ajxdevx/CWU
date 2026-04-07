@@ -2,23 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Hero video first: highest-priority media fetch before other hero assets. -->
+    <!-- Viewport must come before any `media=` preload so (max-width: 800px) matches on phones. -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <!-- First network requests on mobile: hero MP4 only (≤800). Desktop: hero MP4 only (≥801). -->
+    <link
+      rel="preload"
+      href="/assets/video/CWU%20Hero%20Mobile%20001%281%29.mp4"
+      as="video"
+      type="video/mp4"
+      fetchpriority="high"
+      media="(max-width: 800px)"
+    />
     <link
       rel="preload"
       href="/assets/video/CWU%20Hero%20001%281%29.mp4"
       as="video"
       type="video/mp4"
       fetchpriority="high"
+      media="(min-width: 801px)"
     />
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
     <!-- Canonical + primary URL for OG/sitemap; change if production host differs (see README). -->
     <link rel="canonical" href="https://token.commonwealthunion.com/" />
-    <!-- Hero fold static SVG (below video in priority; mobile still gets it early enough). -->
-    <link rel="preload" href="/assets/images/hero-fold-bg-desktop.svg" as="image" fetchpriority="low" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
-    />
     <meta
       name="description"
       content="Commonwealth Union Network (CWU): 56 nations, one network on Solana. Cross-border opportunity across Commonwealth markets. CWU token coming soon — 2.6 billion people, media, SME, and advisory leadership."

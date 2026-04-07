@@ -44,7 +44,6 @@ function App() {
 
   return (
     <div className="app-root relative flex min-h-min w-full min-w-0 max-w-full flex-col">
-      <GlobeTricolorDitherDefs />
       <div className="cwu-hero-fold-stack relative flex w-full min-w-0 shrink-0 flex-col overflow-x-clip overflow-y-visible max-[800px]:overflow-x-visible max-[1274px]:min-h-[100svh] max-[1274px]:min-h-[100dvh]">
         <HeroFoldBackground />
         <div className="relative z-10 flex min-h-0 w-full min-w-0 flex-col max-[1274px]:min-h-0 max-[1274px]:flex-1">
@@ -52,6 +51,7 @@ function App() {
           <Hero />
         </div>
       </div>
+      <GlobeTricolorDitherDefs />
       <SectionReveal surfaceClassName="bg-white" className="w-full min-w-0">
         <NetworkSection />
       </SectionReveal>

@@ -1,10 +1,5 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import '@fontsource/dm-sans/400.css'
-import '@fontsource/dm-sans/600.css'
-import '@fontsource/dm-sans/700.css'
-import '@fontsource/noto-serif/latin-400.css'
-import '@fontsource/noto-serif/latin-ext-400.css'
 import './index.css'
 import App from '@/app/App.tsx'
 
@@ -26,3 +21,12 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 )
+
+// Load webfonts after first paint so the preloaded hero video + shell CSS win the network/CPU race.
+requestAnimationFrame(() => {
+  void import('@fontsource/dm-sans/400.css')
+  void import('@fontsource/dm-sans/600.css')
+  void import('@fontsource/dm-sans/700.css')
+  void import('@fontsource/noto-serif/latin-400.css')
+  void import('@fontsource/noto-serif/latin-ext-400.css')
+})
