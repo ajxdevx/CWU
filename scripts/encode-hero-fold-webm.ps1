@@ -5,7 +5,7 @@
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 $videoDir = Join-Path $root "public\assets\video"
-$inputMp4 = Join-Path $videoDir "CWU Hero 001(1).mp4"
+$inputMp4 = Join-Path $videoDir "hero-fold-desktop.mp4"
 $outputWebm = Join-Path $videoDir "hero-fold-chroma.webm"
 
 if (-not (Test-Path $inputMp4)) {

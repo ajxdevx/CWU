@@ -1,25 +1,25 @@
 import { Plus } from 'lucide-react'
 import { useId, useState } from 'react'
-import { FAQ_ITEMS, TOKEN_SITE } from '@/content/faqContent'
+import { FAQ_ITEMS, SITE_HOST } from '@/content/faqContent'
 
 const SECTION_GUTTER = 'px-6 sm:px-8 md:px-10 lg:px-14 xl:px-16 2xl:px-20'
 const CONTENT_MAX = 'max-w-[720px]'
 
 function FaqAnswerText({ text }: { text: string }) {
-  if (!text.includes(TOKEN_SITE)) return <>{text}</>
-  const parts = text.split(TOKEN_SITE)
+  if (!text.includes(SITE_HOST)) return <>{text}</>
+  const parts = text.split(SITE_HOST)
   return (
     <>
       {parts[0]}
       <a
-        href={`https://${TOKEN_SITE}`}
+        href={`https://${SITE_HOST}`}
         className="font-medium text-[#2073A8] underline underline-offset-2 hover:text-[#1a5f8a]"
         target="_blank"
         rel="noopener noreferrer"
       >
-        {TOKEN_SITE}
+        {SITE_HOST}
       </a>
-      {parts.slice(1).join(TOKEN_SITE)}
+      {parts.slice(1).join(SITE_HOST)}
     </>
   )
 }

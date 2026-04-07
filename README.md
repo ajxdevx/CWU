@@ -4,7 +4,7 @@ Marketing landing site for **CWU** (Commonwealth Union Network): hero, network s
 
 **Token:** CWU on **Solana**  
 **Public launch date (site copy):** 8 April 2026  
-**Reference domain (SEO / links in repo):** `https://token.commonwealthunion.com/`
+**Reference domain (SEO / links in repo):** `https://blockchain.commonwealthunion.com/`
 
 ---
 
@@ -87,7 +87,7 @@ Configured for crawlers and sharing:
 - Single visible **`<h1>`** in the hero (`HeroHeadline.tsx`) for page topic
 - **Viewport** allows zoom (removed `user-scalable=no` for accessibility and common SEO hygiene)
 
-### If your production URL is not `token.commonwealthunion.com`
+### If your production URL is not `blockchain.commonwealthunion.com`
 
 Search and replace the canonical host in:
 
@@ -103,7 +103,7 @@ Optional: add a dedicated **`public/og-image.png`** (e.g. **1200×630**), then p
 ## Content notes
 
 - FAQ copy lives in **`src/faqContent.ts`**; edit there so FAQs and FAQ rich results stay aligned.
-- Footer and FAQ reference **`token.commonwealthunion.com`** for token updates.
+- Footer and FAQ reference **`blockchain.commonwealthunion.com`** for the official site.
 
 ---
 

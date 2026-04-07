@@ -1,4 +1,5 @@
 import Logo from '@/components/Logo'
+import { TELEGRAM_URL, X_URL } from '@/content/socialAssets'
 
 const NAVIGATE_LINKS = [
   { label: 'About', href: '#about' },
@@ -9,8 +10,8 @@ const NAVIGATE_LINKS = [
 ] as const
 
 const CONNECT_LINKS = [
-  { label: 'Telegram', href: 'https://t.me' },
-  { label: 'Twitter / X', href: 'https://x.com/CWUblockchain' },
+  { label: 'Telegram', href: TELEGRAM_URL },
+  { label: 'Twitter / X', href: X_URL },
   {
     label: 'blockchain.commonwealthunion.com',
     href: 'https://blockchain.commonwealthunion.com',

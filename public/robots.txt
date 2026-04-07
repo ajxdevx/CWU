@@ -4,4 +4,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://token.commonwealthunion.com/sitemap.xml
+Sitemap: https://blockchain.commonwealthunion.com/sitemap.xml

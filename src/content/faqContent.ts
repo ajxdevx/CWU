@@ -1,4 +1,5 @@
-export const TOKEN_SITE = 'token.commonwealthunion.com' as const
+/** Public site hostname (canonical landing / FAQ links). */
+export const SITE_HOST = 'blockchain.commonwealthunion.com' as const
 
 export const FAQ_ITEMS = [
   {
@@ -23,6 +24,6 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'When does it launch?',
-    a: 'Coming soon. Visit token.commonwealthunion.com for updates.',
+    a: 'Coming soon. Visit blockchain.commonwealthunion.com for updates.',
   },
 ] as const
