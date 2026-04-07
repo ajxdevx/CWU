@@ -21,8 +21,8 @@ const STEPS = [
   },
   {
     n: '04',
-    title: 'Swap for $CWU',
-    body: 'Paste the CWU contract address and swap your SOL for $CWU. Welcome to the network.',
+    title: 'Swap for CWU',
+    body: 'Paste the CWU contract address and swap your SOL for CWU. Welcome to the network.',
   },
 ] as const
 
@@ -53,7 +53,7 @@ export default function HowToBuySection() {
               id="how-to-buy-heading"
               className="mt-3 font-cwu-serif text-[clamp(2rem,4.5vw,3.5rem)] font-normal leading-[1.1] tracking-[0] text-[#111111] sm:mt-4"
             >
-              How to buy $CWU
+              How to buy CWU
             </h2>
           </header>
 

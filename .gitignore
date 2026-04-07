@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# FFmpeg scratch dumps (do not commit)
+public/assets/video/_*.rgb
+# Local VP9 chroma export (optional; not wired in app)
+public/assets/video/hero-fold-chroma.webm

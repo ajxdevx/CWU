@@ -11,7 +11,10 @@ const NAVIGATE_LINKS = [
 const CONNECT_LINKS = [
   { label: 'Telegram', href: 'https://t.me' },
   { label: 'Twitter / X', href: 'https://x.com/CWUblockchain' },
-  { label: 'token.commonwealthunion.com', href: 'https://token.commonwealthunion.com' },
+  {
+    label: 'blockchain.commonwealthunion.com',
+    href: 'https://blockchain.commonwealthunion.com',
+  },
 ] as const
 
 const linkClass =
@@ -28,7 +31,7 @@ export default function Footer() {
       <div className="mx-auto flex min-h-[600px] w-full max-w-[1920px] flex-1 flex-col px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-14 2xl:px-16">
         <div className="flex shrink-0 flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
           <a href="#about" className="max-w-full shrink-0 no-underline opacity-95 hover:opacity-100">
-            <Logo line1="COMMONWEALTH" line2="UNION BLOCKCHAIN" />
+            <Logo line1="COMMONWEALTH UNION" line2="BLOCKCHAIN" />
           </a>
 
           <div className="grid w-full min-w-0 grid-cols-2 gap-x-6 sm:gap-x-12 lg:w-auto lg:grid-cols-[auto_auto] lg:shrink-0 lg:gap-x-8">
@@ -69,10 +72,10 @@ export default function Footer() {
             Georgia watermark: one line, left-aligned with main footer column; fluid type for narrow viewports.
           */}
           <p
-            className="m-0 w-max max-w-full text-left font-cwu-serif text-[clamp(0.6875rem,min(6.75vw+0.125rem,calc(100cqi/11)),6.875rem)] font-normal leading-none tracking-[-0.04em] whitespace-nowrap text-white/30 select-none"
+            className="m-0 max-w-full text-left font-cwu-serif text-[clamp(0.6875rem,min(6.75vw+0.125rem,calc(100cqi/11)),6.875rem)] font-normal leading-none tracking-[-0.04em] text-balance text-white/30 select-none"
             aria-hidden
           >
-            CommonwealthToken
+            Commonwealth Union Blockchain
           </p>
         </div>
 
@@ -82,7 +85,7 @@ export default function Footer() {
           </p>
           <p className="m-0 max-w-[593px] font-['DM_Sans',sans-serif] text-[14px] font-normal leading-[18.4px] tracking-normal text-white/60">
             Commonwealth Union is an independent network. Not a government body. Not affiliated with the
-            Commonwealth Secretariat. $CWU is a community token — not financial advice.
+            Commonwealth Secretariat. CWU is a community token — not financial advice.
           </p>
         </div>
       </div>

@@ -18,6 +18,10 @@ export const publicImages = {
 
 export const publicVideo = {
   globeCommonwealth: '/assets/video/globe-commonwealth.mp4',
+  /** Hero fold intro (desktop only); filename has spaces/parens — URL-encoded for fetch. */
+  heroFold001: '/assets/video/CWU%20Hero%20001%281%29.mp4',
+  /** VP9 + alpha (FFmpeg chromakey). Primary on desktop so blue bg is real transparency, not CSS blend. */
+  heroFoldChromaWebm: '/assets/video/hero-fold-chroma.webm',
 } as const
 
 /**

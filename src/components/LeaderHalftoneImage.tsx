@@ -206,7 +206,7 @@ const halftoneLayerClass = [
 ].join(' ')
 
 const photoRevealClass = [
-  'pointer-events-none absolute inset-0 z-[1] h-full w-full object-cover opacity-0',
+  'pointer-events-none absolute inset-0 z-1 h-full w-full object-cover opacity-0',
   'transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
   'motion-reduce:duration-150',
   'group-hover:opacity-100 group-focus:opacity-100 group-focus-within:opacity-100',

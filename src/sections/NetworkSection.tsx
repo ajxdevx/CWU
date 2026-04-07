@@ -47,11 +47,17 @@ const COLUMNS: readonly NetworkColumn[] = [
 const networkCardNumberClass =
   "w-max shrink-0 text-right font-['DM_Sans',sans-serif] text-[20px] font-bold leading-[1.2] tracking-[1.5px]"
 
+/** 1275–1900: three-column row — slightly under full 32/20 so <br /> lines still read cleanly; 801–1274 stacked: 32/20. */
 const titleClass =
-  "m-0 mb-2 min-w-0 font-cwu-serif text-[clamp(1.375rem,0.28rem+3.9vw,2rem)] font-normal leading-[1.2] tracking-[0] text-white md:text-[32px]"
+  "m-0 mb-2 min-w-0 font-cwu-serif text-[clamp(1.375rem,0.28rem+3.9vw,2rem)] font-normal leading-[1.2] tracking-[0] text-white " +
+  "md:max-[1274px]:text-[32px] min-[1275px]:max-[1900px]:text-[30px] min-[1901px]:text-[32px]"
 
 const bodyClass =
-  "m-0 w-full min-w-0 break-words text-white/80 [overflow-wrap:anywhere] font-['DM_Sans',sans-serif] text-[clamp(0.96875rem,0.32rem+3.05vw,1.22rem)] font-normal leading-[1.35] tracking-[0] mobile:text-[clamp(12px,1.55dvh+0.28rem,15px)] mobile:leading-[1.36] md:text-[20px] md:leading-[23.9px]"
+  "m-0 w-full min-w-0 text-white/80 wrap-anywhere font-['DM_Sans',sans-serif] text-[clamp(0.96875rem,0.32rem+3.05vw,1.22rem)] font-normal leading-[1.35] tracking-[0] " +
+  "mobile:text-[clamp(12px,1.55dvh+0.28rem,15px)] mobile:leading-[1.36] " +
+  "md:max-[1274px]:text-[20px] md:max-[1274px]:leading-[23.9px] " +
+  "min-[1275px]:max-[1900px]:text-[15px] min-[1275px]:max-[1900px]:leading-[1.38] " +
+  "min-[1901px]:text-[20px] min-[1901px]:leading-[23.9px]"
 
 function NetworkCardBodyStacked({ col }: { readonly col: NetworkColumn }) {
   if (col.n === '01') {
@@ -193,13 +199,13 @@ export default function NetworkSection() {
                 alt=""
                 aria-hidden
                 decoding="async"
-                className="h-10 w-auto max-h-12 max-w-[3rem] shrink-0 object-contain object-left opacity-95"
+                className="h-10 w-auto max-h-12 max-w-12 shrink-0 object-contain object-left opacity-95"
               />
               <span className={networkCardNumberClass} style={{ color: TEAL }}>
                 {n}
               </span>
             </div>
-            <div className="w-full min-w-0 shrink-0 absolute inset-x-5 bottom-2 top-[4.25rem] z-0 flex min-h-0 flex-col justify-end pb-2.5 mobile:bottom-6 sm:inset-x-7 sm:bottom-3 sm:pb-3.5 sm:top-[5rem] lg:inset-x-10 lg:bottom-3.5 lg:pb-4 lg:top-[5.5rem]">
+            <div className="w-full min-w-0 shrink-0 absolute inset-x-5 bottom-2 top-17 z-0 flex min-h-0 flex-col justify-end pb-2.5 mobile:bottom-6 sm:inset-x-7 sm:bottom-3 sm:pb-3.5 sm:top-20 lg:inset-x-10 lg:bottom-3.5 lg:pb-4 lg:top-22">
               <h3 className={`${titleClass} mb-3 md:mb-4`}>{title}</h3>
               <p className={bodyClass}>
                 <NetworkCardBodyStacked col={col} />
@@ -222,7 +228,7 @@ export default function NetworkSection() {
                 alt=""
                 aria-hidden
                 decoding="async"
-                className="h-10 w-auto max-h-12 max-w-[3rem] shrink-0 object-contain object-left opacity-95"
+                className="h-10 w-auto max-h-12 max-w-12 shrink-0 object-contain object-left opacity-95"
               />
               <span className={networkCardNumberClass} style={{ color: TEAL }}>
                 {col.n}

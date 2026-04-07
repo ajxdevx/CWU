@@ -21,7 +21,7 @@ export default function HeaderActionButton({ compactPair = false }: HeaderAction
             : "whitespace-nowrap font-['DM_Sans',sans-serif] text-[14px] font-bold leading-[120%] tracking-[0] text-[#F0F0F0] sm:text-[16px]"
         }
       >
-        BUY $CWU
+        BUY CWU
       </span>
       <ArrowRight
         className="size-4 shrink-0 text-[#F0F0F0]"

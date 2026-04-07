@@ -257,31 +257,29 @@ body::-webkit-scrollbar {
   }
 }
 
+/* Pixel distance via --cwu-marquee-shift (set in JS) — avoids iOS/WebKit bugs with %-based translate on max-content flex rows. */
 @keyframes cwu-watermark-marquee {
   from {
     transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translate3d(-50%, 0, 0);
+    transform: translate3d(calc(-1 * var(--cwu-marquee-shift, 0px)), 0, 0);
   }
 }
 
-/* Isolate paint/compositing so the marquee doesn’t thrash the rest of the page */
 .cwu-watermark-marquee-viewport {
-  contain: layout style paint;
   isolation: isolate;
   transform: translateZ(0);
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .cwu-watermark-marquee-track {
-    display: flex;
-    width: max-content;
-    flex-wrap: nowrap;
     animation: cwu-watermark-marquee 42s linear infinite;
+    animation-timing-function: linear;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     transform: translate3d(0, 0, 0);
+    will-change: transform;
   }
 }
 

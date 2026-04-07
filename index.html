@@ -2,11 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Hero video first: highest-priority media fetch before other hero assets. -->
+    <link
+      rel="preload"
+      href="/assets/video/CWU%20Hero%20001%281%29.mp4"
+      as="video"
+      type="video/mp4"
+      fetchpriority="high"
+    />
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
     <!-- Canonical + primary URL for OG/sitemap; change if production host differs (see README). -->
     <link rel="canonical" href="https://token.commonwealthunion.com/" />
-    <!-- Hero fold background (desktop SVG; picture swaps on narrow viewports). -->
-    <link rel="preload" href="/assets/images/hero-fold-bg-desktop.svg" as="image" fetchpriority="high" />
+    <!-- Hero fold static SVG (below video in priority; mobile still gets it early enough). -->
+    <link rel="preload" href="/assets/images/hero-fold-bg-desktop.svg" as="image" fetchpriority="low" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"

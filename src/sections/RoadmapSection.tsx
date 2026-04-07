@@ -51,7 +51,7 @@ const badgeClass = (tone: 'active' | 'direction') =>
 const networkCardTitleClass =
   "m-0 w-full min-w-0 text-balance font-cwu-serif text-[clamp(1.375rem,0.28rem+3.9vw,2rem)] font-normal leading-[1.2] tracking-[0] text-white md:text-[32px]"
 const networkCardBodyClass =
-  "m-0 min-h-0 w-full min-w-0 break-words text-white/80 [overflow-wrap:anywhere] font-['DM_Sans',sans-serif] text-[clamp(0.96875rem,0.32rem+3.05vw,1.22rem)] font-normal leading-[1.35] tracking-[0] mobile:text-[clamp(12px,1.55dvh+0.28rem,15px)] mobile:leading-[1.36] md:text-[20px] md:leading-[23.9px]"
+  "m-0 min-h-0 w-full min-w-0 text-white/80 wrap-anywhere font-['DM_Sans',sans-serif] text-[clamp(0.96875rem,0.32rem+3.05vw,1.22rem)] font-normal leading-[1.35] tracking-[0] mobile:text-[clamp(12px,1.55dvh+0.28rem,15px)] mobile:leading-[1.36] md:text-[20px] md:leading-[23.9px]"
 
 export default function RoadmapSection() {
   return (
