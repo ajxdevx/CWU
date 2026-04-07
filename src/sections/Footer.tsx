@@ -2,7 +2,6 @@ import Logo from '@/components/Logo'
 import { TELEGRAM_URL, X_URL } from '@/content/socialAssets'
 
 const NAVIGATE_LINKS = [
-  { label: 'About', href: '#about' },
   { label: 'Network', href: '#network' },
   { label: 'Advisory', href: '#advisory' },
   { label: 'How to Buy', href: '#how-to-buy' },
@@ -31,7 +30,7 @@ export default function Footer() {
     <footer className="box-border flex min-h-[600px] w-full min-w-0 shrink-0 flex-col bg-[#0A1628]">
       <div className="mx-auto flex min-h-[600px] w-full max-w-[1920px] flex-1 flex-col px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-14 2xl:px-16">
         <div className="flex shrink-0 flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
-          <a href="#about" className="max-w-full shrink-0 no-underline opacity-95 hover:opacity-100">
+          <a href="#network" className="max-w-full shrink-0 no-underline opacity-95 hover:opacity-100">
             <Logo line1="COMMONWEALTH" line2="UNION BLOCKCHAIN" />
           </a>
 

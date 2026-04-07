@@ -159,21 +159,21 @@ export default function CommonwealthSection() {
                 </div>
               </div>
               <div className="mt-2 flex w-full max-w-full flex-nowrap items-stretch justify-start gap-2.5">
-                <button
-                  type="button"
-                  className="box-border flex min-h-[64px] min-w-0 flex-1 items-center justify-center rounded-[14.19px] border-[1.42px] border-solid border-white/15 bg-[#014778] px-10 py-5 text-center transition-[filter,opacity] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#014778] lg:flex-none lg:w-fit"
+                <a
+                  href="#advisory"
+                  className="box-border flex min-h-[64px] min-w-0 flex-1 items-center justify-center rounded-[14.19px] border-[1.42px] border-solid border-white/15 bg-[#014778] px-10 py-5 text-center no-underline transition-[filter,opacity] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#014778] lg:flex-none lg:w-fit"
                 >
                   <span className="font-['DM_Sans',sans-serif] text-[15px] font-bold leading-[120%] text-white sm:text-[16px]">
                     Learn more
                   </span>
-                </button>
-                <button
-                  type="button"
-                  aria-label="Learn more, next"
-                  className="box-border flex h-16 w-[64.89px] shrink-0 items-center justify-center rounded-[17.78px] bg-[#2073A8] px-5 py-2 text-white transition-[filter,transform] hover:brightness-110 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2073A8]"
+                </a>
+                <a
+                  href="#advisory"
+                  aria-label="Leadership section"
+                  className="box-border flex h-16 w-[64.89px] shrink-0 items-center justify-center rounded-[17.78px] bg-[#2073A8] px-5 py-2 text-white no-underline transition-[filter,transform] hover:brightness-110 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2073A8]"
                 >
                   <ArrowRight className="size-5" strokeWidth={2.2} aria-hidden />
-                </button>
+                </a>
               </div>
             </div>
           </div>
