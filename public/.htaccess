@@ -1,0 +1,8 @@
+# GoDaddy / Apache (Linux hosting): long cache for static video so repeat visits are instant.
+# If your plan uses Nginx only, this file is ignored — set Cache-Control in the host control panel instead.
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(mp4|webm)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+</IfModule>

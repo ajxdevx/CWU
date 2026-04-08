@@ -56,7 +56,7 @@ function GlobeCard() {
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
         >
           <source src={publicVideo.globeCommonwealth} type="video/mp4" />
         </video>

@@ -24,7 +24,8 @@
       fetchpriority="high"
       media="(min-width: 801px)"
     />
-    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <!-- Favicon after hero preloads so the first bytes compete with video, not the icon. -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" fetchpriority="low" />
     <!-- Canonical + primary URL for OG/sitemap; change if production host differs (see README). -->
     <link rel="canonical" href="https://blockchain.commonwealthunion.com/" />
     <meta
@@ -108,6 +109,7 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- Low priority vs hero preloads so the browser can fetch the MP4 first on shared hosting. -->
+    <script type="module" src="/src/main.tsx" fetchpriority="low"></script>
   </body>
 </html>
